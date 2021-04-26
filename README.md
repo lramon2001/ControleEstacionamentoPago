@@ -4,9 +4,9 @@
 [![Série](https://img.shields.io/badge/AdrianSoares-Grupo10-blue)](https://github.com/SwampTG)
 [![Série](https://img.shields.io/badge/DiogenesDantas-Grupo10-green)](https://github.com/diogjunior100)
 [![Série](https://img.shields.io/badge/ArthurCouto-Grupo10-blue)](https://github.com/CrimsonCrown)
-![Série](https://img.shields.io/badge/AndreLanna-O.O-blue)
-![Série](https://img.shields.io/badge/Projeto-Estacionamento-green)
-
+![Série](https://img.shields.io/badge/Professor-AndreLanna-green)
+![Série](https://img.shields.io/badge/Projeto-Estacionamento-blue)
+![Série](https://img.shields.io/badge/Discplina-O.Objetos-green)
 
 
 
