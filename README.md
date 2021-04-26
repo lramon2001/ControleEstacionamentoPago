@@ -28,7 +28,7 @@
 > **Esse projeto não segue nenhum requisito de versionamento.**
 
 ## History / História
-- See [Commit changes](https://https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/graphs/commit-activity) for details
+- See [Commit changes](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/graphs/commit-activity) for details
 
-> **Consulte [Mudanças de commit](https://https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/graphs/commit-activity) para obter detalhes.**
+> **Consulte [Mudanças de commit](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/graphs/commit-activity) para obter detalhes.**
 > 
