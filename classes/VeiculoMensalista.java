@@ -9,6 +9,29 @@ package com.grupo10.estacionamento.classes;
  *
  * @author USER
  */
-public class VeiculoMensalista extends Veiculo{
-    
+public class VeiculoMensalista extends Veiculo {
+
+    private Proprietario proprietario;
+
+    public VeiculoMensalista(Proprietario proprietario) {
+        this.proprietario = proprietario;
+    }
+
+    public VeiculoMensalista(Proprietario proprietario, String marca, String modelo, String numeroPlaca) {
+        super(marca, modelo, numeroPlaca);
+        this.proprietario = proprietario;
+    }
+
+    VeiculoMensalista() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Proprietario getProprietario() {
+        return proprietario;
+    }
+
+    public void setProprietario(Proprietario proprietario) {
+        this.proprietario = proprietario;
+    }
+
 }
