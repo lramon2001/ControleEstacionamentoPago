@@ -6,6 +6,8 @@ import com.grupo10.estacionamento.classes.CadastroVeiculos;
 import com.grupo10.estacionamento.classes.Proprietario;
 import com.grupo10.estacionamento.classes.Veiculo;
 import com.grupo10.estacionamento.classes.VeiculoMensalista;
+import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
+import com.grupo10.estacionamento.exceptions.DadosVeiculosIncompletosException;
 import javax.swing.JOptionPane;
 
 /*
@@ -25,7 +27,7 @@ public class Main {
      */
     static CadastroVeiculos veiculos =new CadastroVeiculos(); 
     static CadastroProprietarios proprietarios=new CadastroProprietarios();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
          menu();
     }
     public static void menu(){
@@ -59,7 +61,7 @@ public class Main {
             String indisponivel="Funcionalidade não implementada";
             switch (x) {
                 case 1:
-
+                    
                     /*
                     Criando um novo registro de veiculo.
                     1-Instanciar um novo veiculo;
@@ -68,21 +70,25 @@ public class Main {
                     4-Enviar uma mensagem de sucesso,caso seja bem sucedido.
                      */
                     Veiculo v = new Veiculo();
+                    
+                    try {
+                        String strMarca = JOptionPane.showInputDialog("Digte a marca do veículo:");
+                        v.setMarca(strMarca);
 
-                    String strMarca = JOptionPane.showInputDialog("Digte a marca do veículo:");
-                    v.setMarca(strMarca);
+                        String strModelo = JOptionPane.showInputDialog("Digte o modelo do veículo:");
+                        v.setModelo(strModelo);
 
-                    String strModelo = JOptionPane.showInputDialog("Digte o modelo do veículo:");
-                    v.setModelo(strModelo);
+                        String strPlaca = JOptionPane.showInputDialog("Digte a placa do veículo:");
+                        v.setNumeroPlaca(strPlaca);
 
-                    String strPlaca = JOptionPane.showInputDialog("Digte a placa do veículo:");
-                    v.setNumeroPlaca(strPlaca);
-                     
-                    if(veiculos.buscar(strPlaca)==null){
-                         veiculos.cadastrarVeiculo(v);
+                        if (veiculos.buscar(strPlaca) == null) {
+                            veiculos.cadastrarVeiculo(v);
+                        }
+                    } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
+                        System.out.println(erroDadosVeiculosIncompleto.getMessage());
+                        JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
                     }
-                   
-                     
+
                     break;
                 case 2:
                 
@@ -95,21 +101,9 @@ public class Main {
                     5-Criar um objeto Proprietario;
                     6-Setar tudo do proprietario e adicionar vincular o veiculo
                     */
-                    VeiculoMensalista vm= new VeiculoMensalista();
-                    
-                    String strMarcaMensalista = JOptionPane.showInputDialog("Digte a marca do veículo:");
-                    vm.setMarca(strMarcaMensalista);
-
-                    String strModeloMensalista = JOptionPane.showInputDialog("Digte o modelo do veículo:");
-                    vm.setModelo(strModeloMensalista);
-
-                    String strPlacaMensalista = JOptionPane.showInputDialog("Digte a placa do veículo:");
-                    vm.setNumeroPlaca(strPlacaMensalista);
-                    
-                    if(veiculos.buscar(strPlacaMensalista)==null){
-                         veiculos.cadastrarVeiculo(vm);
-                    }
+                   
                     Proprietario p =new Proprietario();
+                    try{
                     String strNome = JOptionPane.showInputDialog("Digte o nome do proprietario:");
                     p.setNome(strNome);
                     
@@ -125,13 +119,34 @@ public class Main {
                     
                     String strNresidencial = JOptionPane.showInputDialog("Digte o telefone residencial:");
                     p.setnResidencial(strNresidencial);
+                    System.out.println("com.grupo10.estacionamento.app.Main.menu()");
+                    System.out.println(strCnh);
+                    proprietarios.cadastrarProprietario(p);
+                     VeiculoMensalista vm= new VeiculoMensalista();
                     
+                    String strMarcaMensalista = JOptionPane.showInputDialog("Digte a marca do veículo:");
+                    vm.setMarca(strMarcaMensalista);
+
+                    String strModeloMensalista = JOptionPane.showInputDialog("Digte o modelo do veículo:");
+                    vm.setModelo(strModeloMensalista);
+
+                    String strPlacaMensalista = JOptionPane.showInputDialog("Digte a placa do veículo:");
+                    vm.setNumeroPlaca(strPlacaMensalista);
+                    
+                    if(veiculos.buscar(strPlacaMensalista)==null){
+                         veiculos.cadastrarVeiculo(vm);
+                    }
                     vm.setProprietario(p);
-                    if(proprietarios.buscar(strCnh)==null){
-                         proprietarios.cadastrarProprietario(p);
+                    }
+                    catch (DadosPessoaisIncompletosException erroDadosProprietarioIncompleto){
+                     System.out.println(erroDadosProprietarioIncompleto.getMessage());
+                     JOptionPane.showMessageDialog(null,"Proprietario com dados Pessoais incompletos");
+                    }
+                    catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
+                        JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
                     }
                     
-                          
+                                    
                     break;
                 case 3:
                     JOptionPane.showMessageDialog(null, indisponivel);

@@ -5,6 +5,7 @@
  */
 package com.grupo10.estacionamento.classes;
 
+import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -34,9 +35,10 @@ public class CadastroProprietarios {
        1-Implementar a assinatura do metodo cadastrar;
        2-Adicionar o objeto proprietario passado por parâmetro na lista;
     */
-    public void cadastrarProprietario (Proprietario p){
+    public void cadastrarProprietario(Proprietario p) {
         proprietarios.add(p);
     }
+    
     /*
      1-Implementar a assinatura do metodo remover;
      2-Remover da lista o objeto que teve a posição na lista passada por parâmetro

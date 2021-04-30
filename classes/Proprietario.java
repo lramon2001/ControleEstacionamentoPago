@@ -5,6 +5,8 @@
  */
 package com.grupo10.estacionamento.classes;
 
+import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
+
 /**
  *
  * @author USER
@@ -25,24 +27,38 @@ public class Proprietario {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) throws DadosPessoaisIncompletosException {
+        if (nome.length() == 0) {
+            throw new DadosPessoaisIncompletosException();
+        } else {
+            this.nome = nome;
+        }
     }
 
     public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setEndereco(String endereco) throws DadosPessoaisIncompletosException{
+        if(endereco.length()==0){
+              throw new DadosPessoaisIncompletosException();
+        }
+        else{
+            this.endereco = endereco;
+        }
     }
 
     public String getnCelular() {
         return nCelular;
     }
 
-    public void setnCelular(String nCelular) {
-        this.nCelular = nCelular;
+    public void setnCelular(String nCelular) throws DadosPessoaisIncompletosException {
+        if (nCelular.length() == 0) {
+            throw new DadosPessoaisIncompletosException();
+        } else {
+            this.nCelular = nCelular;
+        }
+
     }
 
     public String getnResidencial() {
@@ -50,15 +66,22 @@ public class Proprietario {
     }
 
     public void setnResidencial(String nResidencial) {
-        this.nResidencial = nResidencial;
-    }
+      
+             this.nResidencial = nResidencial;
+        }
+    
 
     public String getCnh() {
         return cnh;
     }
 
-    public void setCnh(String cnh) {
-        this.cnh = cnh;
+    public void setCnh(String cnh) throws DadosPessoaisIncompletosException {
+        if (cnh.length() == 0) {
+            throw new DadosPessoaisIncompletosException();
+        } else {
+            this.cnh = cnh;
+        }
+
     }
     
     
