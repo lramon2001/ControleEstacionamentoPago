@@ -22,8 +22,8 @@ public class VeiculoMensalista extends Veiculo {
         this.proprietario = proprietario;
     }
 
-    VeiculoMensalista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public VeiculoMensalista() {
+   
     }
 
     public Proprietario getProprietario() {
