@@ -1,7 +1,9 @@
 package com.grupo10.estacionamento.app;
 
 
+import com.grupo10.estacionamento.classes.CadastroProprietarios;
 import com.grupo10.estacionamento.classes.CadastroVeiculos;
+import com.grupo10.estacionamento.classes.Proprietario;
 import com.grupo10.estacionamento.classes.Veiculo;
 import com.grupo10.estacionamento.classes.VeiculoMensalista;
 import javax.swing.JOptionPane;
@@ -22,6 +24,7 @@ public class Main {
      * @param args the command line arguments
      */
     static CadastroVeiculos veiculos =new CadastroVeiculos(); 
+    static CadastroProprietarios proprietarios=new CadastroProprietarios();
     public static void main(String[] args) {
          menu();
     }
@@ -76,9 +79,11 @@ public class Main {
                     1-Instaciar um novo veiculo mensalista;
                     2-Setar tudo referente ao veiculo;
                     3-Se o veiculo já estiver registrado,lançar a exception veiculo já cadastrado;
-                    4-Adicionar 
+                    4-Adicionar veiculo a lista;
+                    5-Criar um objeto Proprietario;
+                    6-Setar tudo do proprietario e adicionar vincular o veiculo
                     */
-                    Veiculo vm= new VeiculoMensalista();
+                    VeiculoMensalista vm= new VeiculoMensalista();
                     
                     String strMarcaMensalista = JOptionPane.showInputDialog("Digte a marca do veículo:");
                     vm.setMarca(strMarcaMensalista);
@@ -92,7 +97,29 @@ public class Main {
                     if(veiculos.buscar(strPlacaMensalista)==null){
                          veiculos.cadastrarRotativo(vm);
                     }
+                    Proprietario p =new Proprietario();
+                    String strNome = JOptionPane.showInputDialog("Digte o nome do proprietario:");
+                    p.setNome(strNome);
                     
+                     
+                    String strCnh = JOptionPane.showInputDialog("Digte o numero da CNH:");
+                    p.setCnh(strCnh);
+
+                    String strEndereco = JOptionPane.showInputDialog("Digte o endereço do proprietario:");
+                    p.setEndereco(strEndereco);
+
+                    String strNcelular = JOptionPane.showInputDialog("Digte o telefone celular:");
+                    p.setnCelular(strNcelular);
+                    
+                    String strNresidencial = JOptionPane.showInputDialog("Digte o telefone residencial:");
+                    p.setnResidencial(strNresidencial);
+                    
+                    vm.setProprietario(p);
+                    if(proprietarios.buscar(strCnh)==null){
+                         proprietarios.cadastrarProprietario(p);
+                    }
+                   
+                          
                     break;
                 case 3:
                     //JOptionPane.showMessageDialog(null, m1);
@@ -105,9 +132,10 @@ public class Main {
                     break;
                 case 6:
                     //JOptionPane.showMessageDialog(null, m1);
+                      proprietarios.listar();
                     break;
                 case 7:
-                    //JOptionPane.showMessageDialog(null, m1);
+                  
                     break;
                 case 8:
                     //JOptionPane.showMessageDialog(null, m1);

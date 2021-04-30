@@ -31,11 +31,11 @@ public class CadastroVeiculos {
         veiculos.remove(index);
     }
     public void listar(){
-       String lista = "Veículos cadastrados\n"; ;
+       String lista = "Veículos cadastrados\n"; 
        int i=0;
        for(Veiculo v: veiculos){
            
-           lista+= "Veiculo "+(i+1)+":\n"+"Marca: "+v.getMarca()+"\n"+"Modelo"+v.getModelo()+"\n"+"Placa:"+v.getNumeroPlaca()+"\n";
+           lista+= "Veiculo "+(i+1)+":\n"+"Marca: "+v.getMarca()+"\n"+"Modelo: "+v.getModelo()+"\n"+"Placa: "+v.getNumeroPlaca()+"\n";
            i++;
        }
         JOptionPane.showMessageDialog(null, lista);
