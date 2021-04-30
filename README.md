@@ -27,7 +27,7 @@
 
 > **Esse projeto não segue nenhum requisito de versionamento.**
 
-## History / História
+## Commits History / Histórico de commits
 - See [Commit History](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/pulse) for contributors
 
 > **Consulte [Histórico de commits](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/pulse) por colaborador.**
