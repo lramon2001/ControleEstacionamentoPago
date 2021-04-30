@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author USER
+ * @author Lucas
  */
 public class Main {
 
@@ -32,7 +32,11 @@ public class Main {
  
         int x;
         do{
-            
+            /*
+            1-Fazer um menu textual para que o usuário possa escolher qual operação
+            deseja realizar;
+            2-Implementar os casos no switch case
+            */
             String menu="Digite\n"+
                 "1-Cadastrar veículo rotativo;\n"+
                 "2-Cadastrar veiculo mensalista;\n"+
@@ -42,12 +46,20 @@ public class Main {
                 "6-Exibir proprietarios;\n"+
                 "7-Exibir listas de acessos;\n"+
                 "8-Exibir faturamento\n";
+            /*
+              1-Passar a string menu como parâmetro para o JOptionPane;
+              2-Ler a opção do usuário
+            */
             String strx=JOptionPane.showInputDialog(null, menu);
             x=Integer.parseInt(strx);
-            String m1="Funcionalidade não implementada";
+            /*
+              A string indisponivel será utilizada temporariamente para reportar 
+              indisponibilidade de alguma funcionalidade;
+            */
+            String indisponivel="Funcionalidade não implementada";
             switch (x) {
                 case 1:
-                    JOptionPane.showMessageDialog(null, "gsdggsgsg");
+
                     /*
                     Criando um novo registro de veiculo.
                     1-Instanciar um novo veiculo;
@@ -67,7 +79,7 @@ public class Main {
                     v.setNumeroPlaca(strPlaca);
                      
                     if(veiculos.buscar(strPlaca)==null){
-                         veiculos.cadastrarRotativo(v);
+                         veiculos.cadastrarVeiculo(v);
                     }
                    
                      
@@ -95,7 +107,7 @@ public class Main {
                     vm.setNumeroPlaca(strPlacaMensalista);
                     
                     if(veiculos.buscar(strPlacaMensalista)==null){
-                         veiculos.cadastrarRotativo(vm);
+                         veiculos.cadastrarVeiculo(vm);
                     }
                     Proprietario p =new Proprietario();
                     String strNome = JOptionPane.showInputDialog("Digte o nome do proprietario:");
@@ -118,29 +130,41 @@ public class Main {
                     if(proprietarios.buscar(strCnh)==null){
                          proprietarios.cadastrarProprietario(p);
                     }
-                   
+                    
                           
                     break;
                 case 3:
-                    //JOptionPane.showMessageDialog(null, m1);
+                    JOptionPane.showMessageDialog(null, indisponivel);
                     break;
                 case 4:
-                    //JOptionPane.showMessageDialog(null, m1);
+                    JOptionPane.showMessageDialog(null, indisponivel);
                     break;
                 case 5:
+                    /* 1-Chamar o método listar do atributo veiculos
+                         que é uma lista guarda objetos da classe Veiculo
+                         por meio desta referênica;                        
+                    */
                     veiculos.listar();
                     break;
                 case 6:
-                    //JOptionPane.showMessageDialog(null, m1);
+                  
+                    /* 1-Chamar o método listar do atributo proprietarios
+                         que é uma lista guarda objetos da classe Proprietario
+                         por meio desta referênica;                        
+                    */
+                   
                       proprietarios.listar();
                     break;
                 case 7:
                   
                     break;
                 case 8:
-                    //JOptionPane.showMessageDialog(null, m1);
+                    JOptionPane.showMessageDialog(null, indisponivel);
                     break;
                 case 0:
+                    /*
+                     1-Exibir mensagem de despedida amigável ao usuário;
+                    */
                     JOptionPane.showMessageDialog(null, "Obrigado por usar nosso software\n");
                     x = 0;
                     break;

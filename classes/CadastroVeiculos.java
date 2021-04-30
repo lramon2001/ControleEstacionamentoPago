@@ -13,7 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 public class CadastroVeiculos {
+      /*
+    1-Criar uma lista que guarde os objetos veiculos;
+    2-Fazer um método que cadastre o objeto na lista;
+    3-Fazer um método que remova o objeto da lista;
+    4-Fazer um método que liste os objetos da lista;
+    5-Fazer um método de busca passando a placa por parâmetro;
+    6-Implementar construtores.
+
+    */
     private List<Veiculo>veiculos=new ArrayList<Veiculo>();
+ /*
+      1-Criar um construtor que ao instanciar a classe ele já crie a referencia da lista;
+    */
 
     public CadastroVeiculos(List<Veiculo>veiculos) {
        veiculos=new ArrayList<>();    
@@ -21,25 +33,42 @@ public class CadastroVeiculos {
      public CadastroVeiculos() {
        veiculos=new ArrayList<>();    
     }
-    public void cadastrarRotativo(Veiculo v){
+     /*
+       1-Implementar a assinatura do metodo cadastrar;
+       2-Adicionar o objeto proprietario passado por parâmetro na lista;
+    */
+
+    public void cadastrarVeiculo(Veiculo v){
         veiculos.add(v);
     }
-    public void CadastrarMensalista(VeiculoMensalista vm){
+    
+    public void CadastrarVeiculo(VeiculoMensalista vm){
         veiculos.add(vm);    
     }
+        /*
+     1-Implementar a assinatura do metodo remover;
+     2-Remover da lista o objeto que teve a posição na lista passada por parâmetro
+    */
+
     public void remover(int index){
         veiculos.remove(index);
     }
     public void listar(){
+         /*
+        1- Criar uma string lista que contenha as informações do veículo;
+        2- Varrer a lista capturando todos os atributos de todos os objetos referenciadoos na lista de veiculos;
+        3- Criar uma apresentação ao usuário.
+        */
        String lista = "Veículos cadastrados\n"; 
        int i=0;
        for(Veiculo v: veiculos){
            
-           lista+= "Veiculo "+(i+1)+":\n"+"Marca: "+v.getMarca()+"\n"+"Modelo: "+v.getModelo()+"\n"+"Placa: "+v.getNumeroPlaca()+"\n";
+           lista+= "Veiculo "+(i)+":\n"+"Marca: "+v.getMarca()+"\n"+"Modelo: "+v.getModelo()+"\n"+"Placa: "+v.getNumeroPlaca()+"\n";
            i++;
        }
         JOptionPane.showMessageDialog(null, lista);
     }
+    
     public Veiculo buscar(String placa) {
         /*
         1-Percorrer uma lista de veiculos comparando a placa;

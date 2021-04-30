@@ -10,6 +10,11 @@ package com.grupo10.estacionamento.classes;
  * @author USER
  */
 public class VeiculoMensalista extends Veiculo {
+     /*
+    1-Criar atributo proprietario;
+    2-Criar os métodos getters e setters.
+    3-Implementar construtores.
+    */
 
     private Proprietario proprietario;
 

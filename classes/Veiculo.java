@@ -10,6 +10,11 @@ package com.grupo10.estacionamento.classes;
  * @author USER
  */
 public class Veiculo {
+    /*
+    1-Criar atributos marca,modelo e numero da Placa;
+    2-Criar os métodos getters e setters.
+    3-Implementar construtores.
+    */
     private String marca;
     private String modelo;
     private String numeroPlaca;

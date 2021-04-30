@@ -10,6 +10,11 @@ package com.grupo10.estacionamento.classes;
  * @author USER
  */
 public class Proprietario {
+    /*
+    1-Criar atributos nome,endereco,numero do celular,numero do telefone residencial e cnh;
+    2-Criar os métodos getters e setters.
+    3-Implementar construtores.
+    */
     private String nome;
     private String endereco;
     private String nCelular;

@@ -11,33 +11,50 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author USER
+ * @author Lucas Ramon
  */
 public class CadastroProprietarios {
     
     /*
-    1-Criar uma lista que guarde os objetos proprietarios
-    2-Fazer um método que cadastre o objeto na lista
+    1-Criar uma lista que guarde os objetos proprietarios;
+    2-Fazer um método que cadastre o objeto na lista;
+    3-Fazer um método que remova o objeto da lista;
+    4-Fazer um método que liste os objetos da lista;
+    5-Fazer um método de busca passando a cnh por parâmetro;
+    6-Implementar construtores.
     */
     private List<Proprietario> proprietarios = new ArrayList<Proprietario>();
-
+    /*
+      1-Criar um construtor que ao instanciar a classe ele já crie a referencia da lista;
+    */
     public CadastroProprietarios() {
         proprietarios=new ArrayList<>();
     }
-    
+    /*
+       1-Implementar a assinatura do metodo cadastrar;
+       2-Adicionar o objeto proprietario passado por parâmetro na lista;
+    */
     public void cadastrarProprietario (Proprietario p){
         proprietarios.add(p);
     }
-    
+    /*
+     1-Implementar a assinatura do metodo remover;
+     2-Remover da lista o objeto que teve a posição na lista passada por parâmetro
+    */
     public void remover(int index){
         proprietarios.remove(index);
     }
     
     public void listar(){
+        /*
+        1- Criar uma string lista que contenha as informações do usuário;
+        2- Varrer a lista capturando todos os atributos de todos os objetos referenciadoos na lista de proprietarios;
+        3- Criar uma apresentação ao usuário
+        */
         String lista =" Proprietarios cadastrados\n";
         int i=0;
         for(Proprietario p: proprietarios){
-            lista+="Proprietario "+(i+1)+":\n"+"Nome: "+p.getNome()+"\nCNH: "+p.getCnh()+"\nTelefone Celular: "+p.getnCelular()+"\nTelefone Residencial: "+p.getnResidencial()+"\nEndereço: "+p.getEndereco();
+            lista+="Proprietario "+(i)+":\n"+"Nome: "+p.getNome()+"\nCNH: "+p.getCnh()+"\nTelefone Celular: "+p.getnCelular()+"\nTelefone Residencial: "+p.getnResidencial()+"\nEndereço: "+p.getEndereco();
             i++;
         }
         JOptionPane.showMessageDialog(null, lista);
@@ -46,9 +63,8 @@ public class CadastroProprietarios {
     public Proprietario buscar(String cnh){
          /*
         1-Percorrer uma lista de proprietarios comparando a CNH;
-        2-Quando a CNH for encontrada retorna o Proprietario;
-        3-Se não for encontrada retorna um veiculo nulo e informa que não encontrou o veiculo;
-        4-Se encontrar mais de um veiculo retorna excecao;
+        2-Quando a CNH for encontrada retorna o proprietario;
+        3-Se não for encontrada retorna um Proprietario nulo e informa que não encontrou o proprietario;
          */
         Proprietario proprietarioProcurado =null;
         int frequencia=0;
@@ -58,13 +74,11 @@ public class CadastroProprietarios {
                 frequencia++;
             }
         }
-        if(frequencia==1){
+        
+        if(proprietarioProcurado!=null){
             return proprietarioProcurado;
         }
         else{
-            if(frequencia>1){
-                JOptionPane.showMessageDialog(null, "O proprietário já foi cadastrado");
-            }
             return null;
         }
     }
