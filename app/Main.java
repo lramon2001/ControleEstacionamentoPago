@@ -39,7 +39,8 @@ public class Main {
             deseja realizar;
             2-Implementar os casos no switch case
             */
-            String menu="Digite\n"+
+            String menu=
+                "Digite\n"+
                 "1-Cadastrar veículo rotativo;\n"+
                 "2-Cadastrar veiculo mensalista;\n"+
                 "3-Registrar acesso de usuário rotativo;\n"+
@@ -47,7 +48,9 @@ public class Main {
                 "5-Exibir veiculos cadastrados;\n"+
                 "6-Exibir proprietarios;\n"+
                 "7-Exibir listas de acessos;\n"+
-                "8-Exibir faturamento\n";
+                "8-Exibir faturamento\n"+
+                "0-Sair"
+                ;
             /*
               1-Passar a string menu como parâmetro para o JOptionPane;
               2-Ler a opção do usuário
@@ -82,16 +85,16 @@ public class Main {
                         v.setNumeroPlaca(strPlaca);
 
                         if (veiculos.buscar(strPlaca) == null) {
-                            veiculos.cadastrarVeiculo(v);
+                            veiculos.cadastrar(v);
                         }
                     } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
                         System.out.println(erroDadosVeiculosIncompleto.getMessage());
                         JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
                     }
+                    
 
                     break;
                 case 2:
-                
                     /*
                     Criando um novo registro de veiculo mensalista
                     1-Instaciar um novo veiculo mensalista;
@@ -102,8 +105,9 @@ public class Main {
                     6-Setar tudo do proprietario e adicionar vincular o veiculo
                     */
                    
-                    Proprietario p =new Proprietario();
+                  
                     try{
+                    Proprietario p =new Proprietario();
                     String strNome = JOptionPane.showInputDialog("Digte o nome do proprietario:");
                     p.setNome(strNome);
                     
@@ -121,8 +125,12 @@ public class Main {
                     p.setnResidencial(strNresidencial);
                     System.out.println("com.grupo10.estacionamento.app.Main.menu()");
                     System.out.println(strCnh);
-                    proprietarios.cadastrarProprietario(p);
-                     VeiculoMensalista vm= new VeiculoMensalista();
+                    proprietarios.cadastrar(p);
+                    /*
+                    -Instanciando o Veiculo com o método de substuição de Liskov;
+                    -Polimorfismo;
+                    */
+                    Veiculo vm= new VeiculoMensalista(p);
                     
                     String strMarcaMensalista = JOptionPane.showInputDialog("Digte a marca do veículo:");
                     vm.setMarca(strMarcaMensalista);
@@ -132,11 +140,11 @@ public class Main {
 
                     String strPlacaMensalista = JOptionPane.showInputDialog("Digte a placa do veículo:");
                     vm.setNumeroPlaca(strPlacaMensalista);
-                    
+                     
                     if(veiculos.buscar(strPlacaMensalista)==null){
-                         veiculos.cadastrarVeiculo(vm);
+                         veiculos.cadastrar(vm);
                     }
-                    vm.setProprietario(p);
+                    
                     }
                     catch (DadosPessoaisIncompletosException erroDadosProprietarioIncompleto){
                      System.out.println(erroDadosProprietarioIncompleto.getMessage());
@@ -171,7 +179,7 @@ public class Main {
                       proprietarios.listar();
                     break;
                 case 7:
-                  
+                    JOptionPane.showMessageDialog(null, indisponivel);
                     break;
                 case 8:
                     JOptionPane.showMessageDialog(null, indisponivel);

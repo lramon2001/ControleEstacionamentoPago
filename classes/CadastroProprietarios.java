@@ -6,6 +6,7 @@
 package com.grupo10.estacionamento.classes;
 
 import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
+import com.grupo10.estacionamento.interfaces.CadastroInterface;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Lucas Ramon
  */
-public class CadastroProprietarios {
+public class CadastroProprietarios implements CadastroInterface<Proprietario> {
     
     /*
     1-Criar uma lista que guarde os objetos proprietarios;
@@ -35,7 +36,13 @@ public class CadastroProprietarios {
        1-Implementar a assinatura do metodo cadastrar;
        2-Adicionar o objeto proprietario passado por parâmetro na lista;
     */
-    public void cadastrarProprietario(Proprietario p) {
+
+    /**
+     *
+     * @param p
+     */
+    @Override
+    public void cadastrar(Proprietario p) {
         proprietarios.add(p);
     }
     
@@ -43,10 +50,12 @@ public class CadastroProprietarios {
      1-Implementar a assinatura do metodo remover;
      2-Remover da lista o objeto que teve a posição na lista passada por parâmetro
     */
+    @Override
     public void remover(int index){
         proprietarios.remove(index);
     }
     
+    @Override
     public void listar(){
         /*
         1- Criar uma string lista que contenha as informações do usuário;
@@ -62,6 +71,7 @@ public class CadastroProprietarios {
         JOptionPane.showMessageDialog(null, lista);
     }
     
+    @Override
     public Proprietario buscar(String cnh){
          /*
         1-Percorrer uma lista de proprietarios comparando a CNH;
@@ -84,5 +94,11 @@ public class CadastroProprietarios {
             return null;
         }
     }
+
+    
+
+    
+
+   
          
 }

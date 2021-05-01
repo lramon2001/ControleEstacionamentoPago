@@ -28,7 +28,6 @@ public class VeiculoMensalista extends Veiculo {
     }
 
     public VeiculoMensalista() {
-   
     }
 
     public Proprietario getProprietario() {

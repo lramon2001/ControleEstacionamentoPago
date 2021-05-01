@@ -9,10 +9,11 @@ package com.grupo10.estacionamento.classes;
  *
  * @author USER
  */
+import com.grupo10.estacionamento.interfaces.CadastroInterface;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-public class CadastroVeiculos {
+public class CadastroVeiculos implements CadastroInterface<Veiculo>{
       /*
     1-Criar uma lista que guarde os objetos veiculos;
     2-Fazer um método que cadastre o objeto na lista;
@@ -38,11 +39,12 @@ public class CadastroVeiculos {
        2-Adicionar o objeto proprietario passado por parâmetro na lista;
     */
 
-    public void cadastrarVeiculo(Veiculo v){
+    @Override
+    public void cadastrar(Veiculo v){
         veiculos.add(v);
     }
     
-    public void CadastrarVeiculo(VeiculoMensalista vm){
+    public void Cadastrar(VeiculoMensalista vm){
         veiculos.add(vm);    
     }
         /*
