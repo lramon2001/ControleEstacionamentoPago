@@ -1,4 +1,9 @@
+/**
+ *
+ * @author Adrian Soares Lopes
+ */
 package com.grupo10.estacionamento.classes;
+//import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException; (importar)
 
 public class Proprietario {
     //Atributos:
@@ -13,7 +18,7 @@ public class Proprietario {
     public Proprietario (String nome, String endereco, String nCelular, String nResidencial, String cnh) {
         setNome (nome);
         setEndereco (endereco);
-        setEndereco (nCelular);
+        setNCelular (nCelular);
         setNResidencial (nResidencial);
         setCnh (cnh);
     }
@@ -21,20 +26,37 @@ public class Proprietario {
     public Proprietario (String nome, String endereco, String nCelular, String cnh) {
         setNome (nome);
         setEndereco (endereco);
-        setEndereco (nCelular);
+        setNCelular (nCelular);
         setNResidencial ("**Não cadastrado**\n");
         setCnh (cnh);
     }
     // getters ()
     public String getNome () { return this.nome; }
     public String getEndereco () { return this.endereco; }
-    public String getnCelular () { return this.nCelular; }
-    public String getnResidencial () { return this.nResidencial; }
+    public String getNCelular () { return this.nCelular; }
+    public String getNResidencial () { return this.nResidencial; }
     public String getCnh () { return this.cnh; }
     // setters ()
-    public void setNome (String nome) { this.nome = nome; }
-    public void setEndereco (String endereco) { this.endereco = endereco; }
-    public void setNCelular (String celular) { this.nCelular = celular; }
-    public void setNResidencial (String nResidencial) { this.nResidencial = nResidencial; }
-    public void setCnh (String cnh) { this.cnh = cnh; }
+    public void setNome (String nome) { // throws DadosPessoaisIncompletosException (especificar)
+        if (!nome.isNull() && !nome.isEmpty()) this.nome = nome;
+        //else throw new DadosPessoaisIncompletosException(); (instanciar)
+    }
+
+    public void setEndereco (String endereco) { // throws DadosPessoaisIncompletosException (especificar)
+        if (!endereco.isNull() && !endereco.isEmpty()) this.endereco = endereco;
+        //else throw new DadosPessoaisIncompletosException(); (instanciar)
+    }
+
+    public void setNCelular (String celular) { // throws DadosPessoaisIncompletosException (especificar)
+        if (!celular.isNull() && !celular.isEmpty()) this.nCelular = celular;
+        //else throw new DadosPessoaisIncompletosException(); (instanciar)
+    }
+    public void setNResidencial (String nResidencial) { // throws DadosPessoaisIncompletosException (especificar)
+        if (nResidencial.isEmpty()) this.nResidencial = "**Não cadastrado**";
+        else this.nResidencial = nResidencial;
+    }
+    public void setCnh (String cnh) { // throws DadosPessoaisIncompletosException (especificar)
+        if (!cnh.isNull() && !cnh.isEmpty()) this.cnh = cnh;
+        //else throw new DadosPessoaisIncompletosException(); (instanciar)
+    }
 }

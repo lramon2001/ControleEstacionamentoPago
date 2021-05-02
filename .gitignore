@@ -1,3 +1,5 @@
 txt.txt
-.idea/
+.idea/misc.xml
+.idea/vcs.xml
+.idea/workspace.xml
 *.class
