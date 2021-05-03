@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
 
+import jdk.vm.ci.meta.Local;
+
 public abstract class Acesso {
     
     protected LocalDateTime entrada;
@@ -36,11 +38,29 @@ public abstract class Acesso {
             this.saida = saida;
     }
 
-    public void calculaPeriod(){
-            LocalDateTime anoEntrada = this.entrada;
+    public void calculaPeriodo(){
+            int anoEntrada = this.entrada.getYear();
+            int mesEntrada = this.entrada.getMonthValue();
+            int diaEntrada = this.entrada.getDayOfMonth();
             
+            LocalDate entrada = LocalDate.of(anoEntrada, mesEntrada, diaEntrada);
+
+            int anoSaida = this.saida.getYear();
+            int mesSaida = this.saida.getMonthValue();
+            int diaSaida = this.saida.getDayOfMonth();
+
+            LocalDate saida = LocalDate.of(anoSaida, mesSaida, diaEntrada);
+
+            Period periodo = Period.between(entrada, saida);
+
+            this.periodo = periodo;
     }
 
- 
+    public final void calculaDuracao(){
+            duracao = Duration.between(this.entrada, this.saida);
+            this.duracao = duracao;
+    }
+
+    public abstract double calculaValor();  
     
 }
