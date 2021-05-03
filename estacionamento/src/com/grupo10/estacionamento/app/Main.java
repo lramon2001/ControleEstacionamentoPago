@@ -7,8 +7,8 @@ package com.grupo10.estacionamento.app;
 
 import com.grupo10.estacionamento.classes.CadastroVeiculos;
 import com.grupo10.estacionamento.classes.Veiculo;
-import com.grupo10.estacionamento.classes.VeiculoMensalista;
-import java.util.Scanner;
+// import com.grupo10.estacionamento.classes.VeiculoMensalista;
+// import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,19 +70,19 @@ public class Main {
                     4-Guardar no cadastro de veiculos.
                     5-Guardar no registro de funcionarios
                     */
-                    VeiculoMensalista vm=new VeiculoMensalista();
+                    // VeiculoMensalista vm=new VeiculoMensalista();
              
                      
-                     String strMarca2=JOptionPane.showInputDialog("Digte a marca do veículo:");
+                    //  String strMarca2=JOptionPane.showInputDialog("Digte a marca do veículo:");
 //                     vm.setMarca(strMarca2);
                      
-                     String strModelo2=JOptionPane.showInputDialog("Digte o modelo do veículo:");
+                    //  String strModelo2=JOptionPane.showInputDialog("Digte o modelo do veículo:");
 //                     vm.setModelo(strModelo2);
                      
-                     String strPlaca2=JOptionPane.showInputDialog("Digte a placa do veículo:");
+                    //  String strPlaca2=JOptionPane.showInputDialog("Digte a placa do veículo:");
 //                     vm.setNumeroPlaca(strPlaca2); 
                      
-                     String strProprietario=JOptionPane.showInputDialog("Digite");
+                    //  String strProprietario=JOptionPane.showInputDialog("Digite");
                      /*
                      -Criar o objeto proprietário para setar no veiculo vm;
                      -Atualizar a lista;
