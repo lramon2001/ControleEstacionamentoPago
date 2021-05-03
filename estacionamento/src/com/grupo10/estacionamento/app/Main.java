@@ -30,7 +30,7 @@ import java.util.List;
  *
  * @author Lucas Ramon
  */
-public class Estacionamento {
+public class Main {
 
     /**
      * @param args the command line arguments
