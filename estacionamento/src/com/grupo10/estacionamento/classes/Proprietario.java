@@ -9,7 +9,7 @@ import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
 
 /**
  *
- * @author Lucas Ramon
+ * @author Adrian Soares
  */
 public class Proprietario {
     /*
@@ -17,72 +17,66 @@ public class Proprietario {
     2-Criar os métodos getters e setters.
     3-Implementar construtores.
     */
+    //Atributos:
     private String nome;
     private String endereco;
     private String nCelular;
     private String nResidencial;
     private String cnh;
+    //Métodos:
+    public Proprietario (){}
+    /*
+    Métodos de cadastro e o construtor geram exceções para
+    casos em que cadastro é mal realizado (DadosPessoaisIncompletosException)
+    o telefone residencial é opcional e portanto não gera
+    */
+//Iniciação com telefone residencial
+    public Proprietario (String nome, String endereco, String nCelular, String nResidencial, String cnh) throws DadosPessoaisIncompletosException {
+        setNome (nome);
+        setEndereco (endereco);
+        setnCelular (nCelular);
+        setnResidencial (nResidencial);
+        setCnh (cnh);
+    }
+    //Telefone Residencial opcional
+    public Proprietario (String nome, String endereco, String nCelular, String cnh) throws DadosPessoaisIncompletosException {
+        setNome (nome);
+        setEndereco (endereco);
+        setnCelular (nCelular);
+        setnResidencial ("**Não cadastrado**\n");
+        setCnh (cnh);
+    }
+    // getters ()
+    public String getNome () { return this.nome; }
+    public String getEndereco () { return this.endereco; }
+    public String getnCelular () { return this.nCelular; }
+    public String getnResidencial () { return this.nResidencial; }
+    public String getCnh () { return this.cnh; }
 
-    public String getNome() {
-        return nome;
+    // setters ()
+    public void setNome (String nome) throws DadosPessoaisIncompletosException {
+        if (!nome.isBlank()) this.nome = nome;
+        else throw new DadosPessoaisIncompletosException();
     }
 
-    public void setNome(String nome) throws DadosPessoaisIncompletosException {
-        if (nome.length() == 0) {
-            throw new DadosPessoaisIncompletosException();
-        } else {
-            this.nome = nome;
-        }
+    public void setEndereco (String endereco) throws DadosPessoaisIncompletosException{
+        if (!endereco.isBlank()) this.endereco = endereco;
+        else throw new DadosPessoaisIncompletosException();
     }
 
-    public String getEndereco() {
-        return endereco;
+    public void setnCelular (String celular) throws DadosPessoaisIncompletosException {
+        if (!celular.isBlank()) this.nCelular = celular;
+        else throw new DadosPessoaisIncompletosException();
+    }
+    public void setnResidencial (String nResidencial) {
+        if (nResidencial.isBlank()) this.nResidencial = "**Não cadastrado**";
+        else this.nResidencial = nResidencial;
+    }
+    public void setCnh (String cnh) throws DadosPessoaisIncompletosException{
+        if (!cnh.isBlank()) this.cnh = cnh;
+        else throw new DadosPessoaisIncompletosException();
     }
 
-    public void setEndereco(String endereco) throws DadosPessoaisIncompletosException{
-        if(endereco.length()==0){
-              throw new DadosPessoaisIncompletosException();
-        }
-        else{
-            this.endereco = endereco;
-        }
-    }
-
-    public String getnCelular() {
-        return nCelular;
-    }
-
-    public void setnCelular(String nCelular) throws DadosPessoaisIncompletosException {
-        if (nCelular.length() == 0) {
-            throw new DadosPessoaisIncompletosException();
-        } else {
-            this.nCelular = nCelular;
-        }
-
-    }
-
-    public String getnResidencial() {
-        return nResidencial;
-    }
-
-    public void setnResidencial(String nResidencial) {
-      
-             this.nResidencial = nResidencial;
-        }
-    
-
-    public String getCnh() {
-        return cnh;
-    }
-
-    public void setCnh(String cnh) throws DadosPessoaisIncompletosException {
-        if (cnh.length() == 0) {
-            throw new DadosPessoaisIncompletosException();
-        } else {
-            this.cnh = cnh;
-        }
-
-    }
     
     
 }
