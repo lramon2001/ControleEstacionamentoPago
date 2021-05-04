@@ -231,6 +231,7 @@ public class Main {
                         acesso.setSaida(dataSaida, horaSaida);
                     }
                     catch(PeriodoInvalidoException erroDePeriodoInvalido){
+                        erroDePeriodoInvalido.getMessage();
                         JOptionPane.showMessageDialog(null, "Periodo Inválido");
                     }
                         
@@ -248,7 +249,7 @@ public class Main {
                     O calculaPeriodo é basciamente um setter especial. Ele utiliza os atributos entrada e saída para calcular
                     
                     */
-                    acesso.caculaPeriodo();
+                    acesso.calculaPeriodo();
                     
                     vm.setAcesso(acesso);
                    

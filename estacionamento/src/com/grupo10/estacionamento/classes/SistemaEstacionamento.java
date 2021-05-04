@@ -1,5 +1,12 @@
+package com.grupo10.estacionamento.classes;
+
+import com.grupo10.estacionamento.classes.CadastroVeiculos;
+import com.grupo10.estacionamento.classes.CadastroProprietarios;
+import com.grupo10.estacionamento.classes.CadastroAcessos;
+import java.util.ArrayList;
 
 public class SistemaEstacionamento {
+    /*
 	private CadastroVeiculos veiculos;
 	private CadastroProprietarios proprietarios;
 	private CadastroAcessos acessos;
@@ -48,4 +55,6 @@ public class SistemaEstacionamento {
     public ArrayList<Acesso> buscarAcessos(String numeroPlaca) {
     	return acessos.buscar(numeroPlaca);
     }
+    **/
+
 }

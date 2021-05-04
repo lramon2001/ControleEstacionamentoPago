@@ -5,8 +5,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
+import com.grupo10.estacionamento.exceptions.PeriodoInvalidoException;
 
-public abstract class Acesso {
+public class Acesso {
 
     protected LocalDateTime entrada;
     protected LocalDateTime saida;
@@ -22,7 +23,7 @@ public abstract class Acesso {
         return entrada;
     }
 
-    public void setEntrada(LocalDate dia, LocalTime hora) {
+    public void setEntrada(LocalDate dia, LocalTime hora) throws PeriodoInvalidoException{
         LocalDateTime entrada = LocalDateTime.of(dia, hora);
         this.entrada = entrada;
     }
@@ -31,12 +32,12 @@ public abstract class Acesso {
         return saida;
     }
 
-    public void setSaida(LocalDate dia, LocalTime hora) {
+    public void setSaida(LocalDate dia, LocalTime hora) throws PeriodoInvalidoException {
         LocalDateTime saida = LocalDateTime.of(dia, hora);
         this.saida = saida;
     }
 
-    public void calculaPeriodo() {
+    public Period calculaPeriodo() {
         int anoEntrada = this.entrada.getYear();
         int mesEntrada = this.entrada.getMonthValue();
         int diaEntrada = this.entrada.getDayOfMonth();
@@ -49,16 +50,15 @@ public abstract class Acesso {
 
         LocalDate saida = LocalDate.of(anoSaida, mesSaida, diaSaida);
 
-        Period periodo = Period.between(entrada, saida);
-
-        this.periodo = periodo;
+        this.periodo = Period.between(entrada, saida);
+        return this.periodo;
     }
 
-    public final void calculaDuracao() {
-        duracao = Duration.between(this.entrada, this.saida);
-        this.duracao = duracao;
+    public final Duration calculaDuracao() {
+        this.duracao = Duration.between(this.entrada, this.saida);
+        return this.duracao;
     }
-
+/*  Implementar cálculo de valor!!!
     public abstract double calculaValor();
-
+*/
 }

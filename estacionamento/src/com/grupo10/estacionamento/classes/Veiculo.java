@@ -84,10 +84,11 @@ public class Veiculo {
     public String mostraTodosAcessosDoVeiculo(){
         String lista="";
         for(int i=0;i<acessos.size();i++){
-        lista+="Entrada: "+acessos.get(i).getEntrada()+"\n"+
-                "Saída: "+acessos.get(i).getSaida()+"\n"+
-                "Tempo de permanênicia:"+acessos.get(i).getDuracao()+"\n"+
-                "Valor a ser cobrado:"+acessos.get(i).getValor()+" R$\n\n";
+        lista+="Entrada: "+acessos.get(i).getEntrada().toLocalTime().toString()+"\n"+
+                "Saída: "+acessos.get(i).getSaida().toLocalTime().toString()+"\n"+
+                "Tempo de permanênicia:"+acessos.get(i).calculaDuracao().toString()+"\n";
+        //Implementar Cálculo de Valor!!!
+           //   "Valor a ser cobrado:"+acessos.get(i).getValor()+" R$\n\n";
                 
         }
         return lista;

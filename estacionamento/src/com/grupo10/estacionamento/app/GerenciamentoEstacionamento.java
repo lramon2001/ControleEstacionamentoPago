@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter;
 
 public class GerenciamentoEstacionamento {
     //Formato de tempo
-    private static final DateTimeFormatter FORMATO_T = DateTimeFormatter.ofPattern("HH:MM");
+    private static final DateTimeFormatter FORMATO_T = DateTimeFormatter.ofPattern("HH:mm");
     //Formato data
     private static final DateTimeFormatter FORMATO_D = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     /*
