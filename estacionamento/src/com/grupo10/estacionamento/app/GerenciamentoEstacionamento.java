@@ -7,45 +7,42 @@ package com.grupo10.estacionamento.app;
 
 /**
  *
- * @author Lucas Ramon
+ * @author Adrian Soares
  */
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class GerenciamentoEstacionamento {
+    //Formato de tempo
+    private static final DateTimeFormatter FORMATO_T = DateTimeFormatter.ofPattern("HH:MM");
+    //Formato data
+    private static final DateTimeFormatter FORMATO_D = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     /*
-    O método lerData() é utilizado para obter um formato especial de Hora. Uma 
-    String do tipo(DD/MM/AAAA) é recebida como parâmetro e é retornado um array 
-    de inteiros no formato especifico para o setter. 
-    Retorno do método: int[] output = [DD,MM,AA]
-    Sendo o output[0]= DD;
-            output[1]=MM;
-            output[2]=AA;
+    O método lerHora() é utilizado para obter um formato especial de Hora. Uma
+    String do tipo(DD/MM/AAAA) é recebida como parâmetro e é retornado um objeto local time com
+    a formatação FORMATO_T = HH:MM
     */
-    
-    public static int[] lerHora(String input) {
 
-        String[] temp = input.split(":");
-        int[] output = new int[2];
-
-        for (int i = 0; i < 2; i++) {
-            output[i] = Integer.parseInt(temp[i]);
-        }
+    public static LocalTime lerHora(String input) {
+        LocalTime output = LocalTime.parse(input, FORMATO_T);
         return output;
     }
-    
-     /*
-    O método lerHora() é utilizado para obter um formato especial de Hora. Uma 
-    String do tipo(HH:MM) é recebida como parâmetro e é retornado um array 
-    de inteiros no formato especifico para o setter. 
-    Retorno do método: int[] output = [HH,MM]
-    Sendo o output[0]= HH;
-            output[1]=MM;
-    */
-    public static int[] lerData(String input){
-        String[] temp = input.split("/");
-        int[] output = new int[3];
 
-        for (int i = 0; i < 3; i++) {
-            output[i] = Integer.parseInt(temp[i]);
-        }
+    /*
+    O método lerData() é utilizado para obter um formato especial de Hora. Uma
+    String do tipo(dd/MM/yyyy) é recebida como parâmetro e é retornado um objeto data
+    da classe LocalDate com a devida formatação
+    */
+
+
+    public static LocalDate lerData(String input) {
+        LocalDate output = LocalDate.parse(input, FORMATO_D);
         return output;
     }
 }
+

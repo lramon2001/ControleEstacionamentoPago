@@ -204,8 +204,7 @@ public class Main {
                     */
                     
                     String strDataEntrada=JOptionPane.showInputDialog(null,"Digite a data da entrada");
-                    int[] inputDataEntrada= GerenciamentoEstacionamento.lerData(strDataEntrada);
-                    LocalDate dataEntrada= LocalDate.of(inputDataEntrada[2], inputDataEntrada[1], inputDataEntrada[0]);
+                    LocalDate dataEntrada = GerenciamentoEstacionamento.lerData(strDataEntrada);
                     
                     /*
                     O método lerHora é utilizado para quebrar a String que é retornada pelo JOptionPane.showInputDialog;
@@ -214,8 +213,7 @@ public class Main {
                     */
                     
                     String strHoraEntrada=JOptionPane.showInputDialog("Digite a hora da entrada");
-                    int[] inputHoraEntrada = GerenciamentoEstacionamento.lerHora(strHoraEntrada);
-                    LocalTime horaEntrada = LocalTime.of(inputHoraEntrada[0], inputHoraEntrada[1]);
+                    LocalTime horaEntrada = GerenciamentoEstacionamento.lerHora(strHoraEntrada);
                     
                     /*
                     O método setEntrada utiliza uma data e uma hora para setar a entrada; 
@@ -224,13 +222,10 @@ public class Main {
                     
                     
                     String strDataSaida=JOptionPane.showInputDialog(null,"Digite a data da saída");
-                    int[] inputDataSaida= GerenciamentoEstacionamento.lerData(strDataSaida);
-                    LocalDate dataSaida= LocalDate.of(inputDataSaida[2], inputDataSaida[1], inputDataSaida[0]);
+                    LocalDate dataSaida = GerenciamentoEstacionamento.lerData(strDataSaida);
                     
                     String strHoraSaida=JOptionPane.showInputDialog("Digite a hora da saída");
-                    int inputHoraSaida[] = GerenciamentoEstacionamento.lerHora(strHoraSaida);
-                    LocalTime horaSaida = LocalTime.of(inputHoraSaida[0], inputHoraSaida[1]);
-                    
+                    LocalTime horaSaida = GerenciamentoEstacionamento.lerHora(strHoraSaida);
                     try {
                         acesso.setEntrada(dataEntrada, horaEntrada);
                         acesso.setSaida(dataSaida, horaSaida);
