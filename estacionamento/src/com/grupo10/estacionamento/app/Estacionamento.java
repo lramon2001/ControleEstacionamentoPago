@@ -267,7 +267,7 @@ public class Estacionamento {
                     /*
                     O processo de setar a saída é exatamente igual ao de setar a entrada  
                     */
-                    acesso.calculaDuracao();
+//                    acesso.calculaDuracao();
                     /*
                     O método calculaDuracao é basicamente um setter especial. Ele utiliza os atributos entrada e saída
                     para calcular a duração e setar no atributo duracao do objeto acesso
