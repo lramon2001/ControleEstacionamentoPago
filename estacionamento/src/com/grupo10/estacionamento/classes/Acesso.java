@@ -82,7 +82,7 @@ public abstract class Acesso {
     public Duration getDuracao() {
         return duracao;
     }
-
+    
     public Period getPeriodo() {
         return periodo;
     }
@@ -105,6 +105,10 @@ public abstract class Acesso {
         this.periodo = periodo;
     }
 
+    public void setDuracao(Duration duracao) {
+        this.duracao = duracao;
+    }
+    
     public int getId() {
         return id;
     }
@@ -114,12 +118,12 @@ public abstract class Acesso {
     }
     
     
-    public final void calculaDuracao(){   
-        duracao=Duration.between(this.entrada,this.saida);
-        this.duracao=duracao;    
+    public final Duration calculaDuracao(){   
+        duracao=Duration.between(this.entrada,this.saida);   
+        return this.duracao;
     }
    
-    public abstract double calculaValor();
+    public abstract double calculaValor(Duration duracao);
    
     
     

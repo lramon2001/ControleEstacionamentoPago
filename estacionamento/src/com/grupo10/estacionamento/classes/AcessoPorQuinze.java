@@ -11,23 +11,16 @@ import java.time.Duration;
  *
  * @author USER
  */
-public class AcessoMensalista extends Acesso {
+public class AcessoPorQuinze extends Acesso{
 
-    public AcessoMensalista() {
-        this.valor=0;
-        this.tarifa=500;        
-    }
-
-    /**
-     *
-     * @param duracao
-     * @return
-     */
     @Override
     public double calculaValor(Duration duracao) {
-        return 0;
+        Acesso acesso=new AcessoPorMinuto();
+        double preco=acesso.calculaValor(duracao);
+        Duration quinzeMinutos =Duration.ofMinutes(15);
+        long  nDescontos = (duracao.toMinutes())/ quinzeMinutos.toMinutes() ;
+        return preco- nDescontos*0.5;
+                //]-(nDescontos*0.5);
     }
-    
-    
     
 }

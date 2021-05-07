@@ -21,7 +21,6 @@ public class CadastroVeiculos implements CadastroInterface<Veiculo>{
     4-Fazer um método que liste os objetos da lista;
     5-Fazer um método de busca passando a placa por parâmetro;
     6-Implementar construtores.
-
     */
     private List<Veiculo>veiculos=new ArrayList<Veiculo>();
  /*
@@ -109,15 +108,16 @@ public class CadastroVeiculos implements CadastroInterface<Veiculo>{
     
     public void listarAcessos(){
         
-        String lista="Acessos\n";
+       String lista="Acessos\n\n";
         int i=0;
         for(Veiculo v:veiculos){
-      
-            lista+="Placa: "+v.getNumeroPlaca()+"\nModelo: "+v.getModelo()+"\n"+v.mostraTodosAcessosDoVeiculo();
-             
+             if(v.mostraTodosAcessosDoVeiculo().length()>0){
+                 lista+= "Acesso:"+(i+1)+"\nPlaca:"+v.getNumeroPlaca()+"\nModelo:"+v.getModelo()+"\n"+v.mostraTodosAcessosDoVeiculo();
+             i++;
+             }
+            
         }
         JOptionPane.showMessageDialog(null, lista);
     }
-    
     
 }

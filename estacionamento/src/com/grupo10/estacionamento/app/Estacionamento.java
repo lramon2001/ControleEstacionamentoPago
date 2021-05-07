@@ -175,7 +175,31 @@ public class Estacionamento {
                     5-adicionar o acesso a lista de acessos;
                     6-Adicionar o custo do acesso a lista de faturamento;
                     */
-                    JOptionPane.showMessageDialog(null, indisponivel);
+                    String strPlacaRotativo = JOptionPane.showInputDialog("Digite o numero da placa");
+                    Veiculo veiculoRotativo = veiculos.buscar(strPlacaRotativo);
+                    
+                    String strDataEntradaRotativo =JOptionPane.showInputDialog(null,"Digte a data da entrada");
+                    int [] inputDataEntradaRotativo =GerenciamentoEstacionamento.lerData(strDataEntradaRotativo);
+                    LocalDate dataEntradaRotativo =LocalDate.of(inputDataEntradaRotativo[2],inputDataEntradaRotativo[1],inputDataEntradaRotativo[0]);
+                    
+                    String strHoraEntradaRotativo = JOptionPane.showInputDialog("Digite a hora da entrada");
+                    int [] inputHoraEntradaRotativo = GerenciamentoEstacionamento.lerHora(strHoraEntradaRotativo);
+                    LocalTime horaEntradaRotativo = LocalTime.of(inputHoraEntradaRotativo[0],inputHoraEntradaRotativo[1]);
+                    
+                    String strDataSaidaRotativo =JOptionPane.showInputDialog(null,"Digte a data da saída");
+                    int [] inputDataSaidaRotativo =GerenciamentoEstacionamento.lerData(strDataSaidaRotativo);
+                    LocalDate dataSaidaRotativo =LocalDate.of(inputDataSaidaRotativo[2],inputDataSaidaRotativo[1],inputDataSaidaRotativo[0]);
+                    
+                    String strHoraSaidaRotativo = JOptionPane.showInputDialog("Digite a hora da saída");
+                    int [] inputHoraSaidaRotativo = GerenciamentoEstacionamento.lerHora(strHoraSaidaRotativo);
+                    LocalTime horaSaidaRotativo = LocalTime.of(inputHoraSaidaRotativo[0],inputHoraSaidaRotativo[1]);
+                    
+                    LocalDateTime entradaRotativo = LocalDateTime.of(dataEntradaRotativo, horaEntradaRotativo);
+                    LocalDateTime saidaRotativo = LocalDateTime.of(dataSaidaRotativo, horaSaidaRotativo);
+                    
+                    Acesso acessoRotativo = GerenciamentoEstacionamento.classificaAcesso(entradaRotativo, saidaRotativo);
+ 
+                    veiculoRotativo.setAcesso(acessoRotativo);
                     break;
                 case 4:
                     /*

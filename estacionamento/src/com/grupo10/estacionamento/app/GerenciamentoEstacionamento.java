@@ -1,9 +1,21 @@
+
+     
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.grupo10.estacionamento.app;
+
+import com.grupo10.estacionamento.classes.Acesso;
+import com.grupo10.estacionamento.classes.AcessoPorMinuto;
+import com.grupo10.estacionamento.classes.AcessoPorQuinze;
+import com.grupo10.estacionamento.exceptions.PeriodoInvalidoException;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,4 +60,55 @@ public class GerenciamentoEstacionamento {
         }
         return output;
     }
+    
+     public static Acesso classificaAcesso(LocalDateTime entrada, LocalDateTime saida) {
+
+        boolean mesmoAno = entrada.getYear() == saida.getYear();
+        boolean mesmoMes = entrada.getMonthValue() == saida.getMonthValue();
+        boolean mesmoDia = entrada.getDayOfMonth() == saida.getDayOfMonth();
+        Duration duracaoDoAcesso = Duration.between(entrada, saida);
+        Duration quinzeMinutos = Duration.ofMinutes(15);
+        Duration umaHora = Duration.ofHours(1);
+        int menosDeQuinze = quinzeMinutos.compareTo(duracaoDoAcesso);
+        int menosDeUmaHora = umaHora.compareTo(duracaoDoAcesso);
+        
+        if (mesmoAno && mesmoMes && mesmoDia && menosDeQuinze == 1) {
+            Acesso acessoPorMinuto = new AcessoPorMinuto();
+            JOptionPane.showMessageDialog(null, "Você é o gênio da bola");            
+            try{
+                acessoPorMinuto.setEntrada(entrada.toLocalDate(), entrada.toLocalTime());
+                acessoPorMinuto.setSaida(saida.toLocalDate(), saida.toLocalTime());
+            }
+            catch(PeriodoInvalidoException e){
+               
+            }
+            Duration duracao =acessoPorMinuto.calculaDuracao();
+            acessoPorMinuto.setDuracao(duracao);
+            acessoPorMinuto.caculaPeriodo();
+            double valor =acessoPorMinuto.calculaValor(duracao);
+            acessoPorMinuto.setValor(valor);
+            return acessoPorMinuto;
+        }
+       if(mesmoAno && mesmoMes && mesmoDia && (menosDeQuinze==-1 || menosDeQuinze == 0) && menosDeUmaHora == 1 ){
+           
+           Acesso acessoPorQuinze = new AcessoPorQuinze();
+           try{
+               acessoPorQuinze.setEntrada(entrada.toLocalDate(), entrada.toLocalTime());
+               acessoPorQuinze.setSaida(saida.toLocalDate(), saida.toLocalTime());
+           }
+           catch(PeriodoInvalidoException e){
+                JOptionPane.showMessageDialog(null, "Periodo Inválido");
+           }
+           Duration duracao =acessoPorQuinze.calculaDuracao();
+            acessoPorQuinze.setDuracao(duracao);
+            acessoPorQuinze.caculaPeriodo();
+            double valor=acessoPorQuinze.calculaValor(duracao);
+            acessoPorQuinze.setValor(valor);
+            return acessoPorQuinze;
+       }
+       else{ 
+           JOptionPane.showMessageDialog(null, "TCHÊ");
+           return null;
+       }
+     }
 }
