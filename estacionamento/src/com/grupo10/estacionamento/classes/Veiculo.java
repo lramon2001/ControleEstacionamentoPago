@@ -6,6 +6,7 @@
 package com.grupo10.estacionamento.classes;
 
 import com.grupo10.estacionamento.exceptions.DadosVeiculosIncompletosException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,15 +83,21 @@ public class Veiculo {
     }
     
     public String mostraTodosAcessosDoVeiculo(){
-        String lista="";
-        for(int i=0;i<acessos.size();i++){
-        lista+="Entrada: "+acessos.get(i).getEntrada()+"\n"+
-                "Saída: "+acessos.get(i).getSaida()+"\n"+
-                "Tempo de permanênicia:"+acessos.get(i).getDuracao()+"\n"+
-                "Valor a ser cobrado:"+acessos.get(i).getValor()+" R$\n\n";
-                
+       StringBuilder lista = new StringBuilder();
+        for (Acesso acesso : acessos) {
+            if(acessos.isEmpty()==false){
+            LocalDateTime entrada = acesso.getEntrada();
+            LocalDateTime saida = acesso.getSaida();
+            lista.append("Entrada:\n" + "Dia: " + entrada.getDayOfMonth()+"/"+entrada.getMonth()+"/"+saida.getYear())
+                    .append("\nHora: " + entrada.toLocalTime().toString())
+                    .append("\nSaída:\n" + "Dia: " + saida.getDayOfMonth()+"/"+saida.getMonth()+"/"+saida.getYear())
+                    .append("\nHora: " + saida.toLocalTime().toString())
+                    .append("\nTempo de permanência: ").append(acesso.duracao.toHours()+"h "+acesso.duracao.toMinutes()+"min")
+                    .append("\nValor a ser cobrado: ").append(acesso.getValor() + "R$\n\n");
+            }
         }
-        return lista;
+        return lista.toString();
+        
     }
      
 }
