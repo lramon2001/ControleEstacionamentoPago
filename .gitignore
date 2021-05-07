@@ -1,9 +1,11 @@
 txt.txt
 /.metadata/
+/.idea/
 **/.idea/workspace.xml
 **/.idea/tasks.xml
 **/.idea/dictionaries
 **/.idea/vcs.xm
 **/.idea/jsLibraryMappings.xml
 Grupo10-ProjetoO.O-UnB-FGA0158.iml
+**/out
 /.vscode

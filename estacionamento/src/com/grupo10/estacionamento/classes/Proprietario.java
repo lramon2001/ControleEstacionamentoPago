@@ -28,7 +28,7 @@ public class Proprietario {
     }
 
     public void setNome(String nome) throws DadosPessoaisIncompletosException {
-        if (nome.length() == 0) {
+        if (nome.isEmpty()) {
             throw new DadosPessoaisIncompletosException();
         } else {
             this.nome = nome;
@@ -40,7 +40,7 @@ public class Proprietario {
     }
 
     public void setEndereco(String endereco) throws DadosPessoaisIncompletosException{
-        if(endereco.length()==0){
+        if(endereco.isEmpty()){
               throw new DadosPessoaisIncompletosException();
         }
         else{
@@ -53,7 +53,7 @@ public class Proprietario {
     }
 
     public void setnCelular(String nCelular) throws DadosPessoaisIncompletosException {
-        if (nCelular.length() == 0) {
+        if (nCelular.isEmpty()) {
             throw new DadosPessoaisIncompletosException();
         } else {
             this.nCelular = nCelular;
@@ -66,9 +66,9 @@ public class Proprietario {
     }
 
     public void setnResidencial(String nResidencial) {
-      
-             this.nResidencial = nResidencial;
-        }
+        if (nResidencial.isEmpty()) this.nResidencial = "**Não cadastrado**";
+        this.nResidencial = nResidencial;
+    }
     
 
     public String getCnh() {
@@ -76,7 +76,7 @@ public class Proprietario {
     }
 
     public void setCnh(String cnh) throws DadosPessoaisIncompletosException {
-        if (cnh.length() == 0) {
+        if (cnh.isEmpty()) {
             throw new DadosPessoaisIncompletosException();
         } else {
             this.cnh = cnh;
