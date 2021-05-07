@@ -85,7 +85,6 @@ public class Veiculo {
     public String mostraTodosAcessosDoVeiculo(){
        StringBuilder lista = new StringBuilder();
         for (Acesso acesso : acessos) {
-            if(acessos.isEmpty()==false){
             LocalDateTime entrada = acesso.getEntrada();
             LocalDateTime saida = acesso.getSaida();
             lista.append("Entrada:\n" + "Dia: " + entrada.getDayOfMonth()+"/"+entrada.getMonth()+"/"+saida.getYear())
@@ -94,7 +93,6 @@ public class Veiculo {
                     .append("\nHora: " + saida.toLocalTime().toString())
                     .append("\nTempo de permanência: ").append(acesso.duracao.toHours()+"h "+acesso.duracao.toMinutes()+"min")
                     .append("\nValor a ser cobrado: ").append(acesso.getValor() + "R$\n\n");
-            }
         }
         return lista.toString();
         

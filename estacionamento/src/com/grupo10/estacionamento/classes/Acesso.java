@@ -27,8 +27,7 @@ public abstract class Acesso {
     protected double tarifa;
     protected double valor;
 
-    public Acesso() {
-    }
+    public Acesso() {}
 
     public Acesso(LocalDateTime entrada, LocalDateTime saida, double tarifa, double valor) {
         this.entrada = entrada;
@@ -36,7 +35,6 @@ public abstract class Acesso {
         this.tarifa = tarifa;
         this.valor = valor;
     }
-    
     
     public LocalDateTime getEntrada() {
         return entrada;
@@ -119,7 +117,7 @@ public abstract class Acesso {
     
     
     public final Duration calculaDuracao(){   
-        duracao=Duration.between(this.entrada,this.saida);   
+        duracao=Duration.between(this.entrada.toLocalTime(),this.saida.toLocalTime());
         return this.duracao;
     }
    

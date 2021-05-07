@@ -17,7 +17,7 @@ import java.time.Period;
  *
  * @Lucas Ramon
  */
-public abstract class Acesso {
+public class AcessoMensalista extends Acesso{
     
     protected LocalDateTime entrada;
     protected LocalDateTime saida;
@@ -27,17 +27,8 @@ public abstract class Acesso {
     protected double tarifa;
     protected double valor;
 
-    public Acesso() {
-    }
+    public AcessoMensalista() {}
 
-    public Acesso(LocalDateTime entrada, LocalDateTime saida, double tarifa, double valor) {
-        this.entrada = entrada;
-        this.saida = saida;
-        this.tarifa = tarifa;
-        this.valor = valor;
-    }
-    
-    
     public LocalDateTime getEntrada() {
         return entrada;
     }
@@ -54,7 +45,7 @@ public abstract class Acesso {
     public void setSaida(LocalDate dia, LocalTime hora) throws PeriodoInvalidoException {  
         
         LocalDateTime saida = LocalDateTime.of(dia, hora);
-        if(saida.equals(this.getEntrada())){
+        if(saida.equals(this.entrada)){
             throw new PeriodoInvalidoException();
         }
         else{
@@ -116,14 +107,10 @@ public abstract class Acesso {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
-    public final Duration calculaDuracao(){   
-        duracao=Duration.between(this.entrada,this.saida);   
-        return this.duracao;
-    }
    
-    public abstract double calculaValor(Duration duracao);
+    public double calculaValor(Duration duracao) {
+        return 0;
+    }
    
     
     
