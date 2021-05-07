@@ -9,9 +9,9 @@ public class AcessoPorHora extends Acesso {
         double preco = acesso.calculaValor(duracao);
 
         Duration umaHora = Duration.ofMinutes(60);
-        long nDescontos = (duracao.toMinutes()) % 15;
+        long nDescontos = (duracao.toMinutes())/umaHora.toMinutes();
 
-        return preco - nDescontos * 1;
+        return preco - nDescontos;
 
     }
 }
