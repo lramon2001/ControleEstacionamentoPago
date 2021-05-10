@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.grupo10.estacionamento.app"},{"l":"com.grupo10.estacionamento.classes"},{"l":"com.grupo10.estacionamento.exceptions"},{"l":"com.grupo10.estacionamento.interfaces"}]
