@@ -31,7 +31,7 @@
 
 ## Project Kanban / Kanban do Projeto
 - to see what we are implementing at the moment just click on [This link](https://trello.com/b/TipC8qJd/controle-de-estacionamento) to see our Kanban
-> **para ver o que estamos implementando no momento é só clicar [Neste link](https://trello.com/b/TipC8qJd/controle-de-estacionamento) para ver nosso Kanban
+> **para ver o que estamos implementando no momento é só clicar [Neste link](https://trello.com/b/TipC8qJd/controle-de-estacionamento) para ver nosso Kanban**
 
 ## Versioning / Versionamento
 - This project does not follow any versioning requirements.
