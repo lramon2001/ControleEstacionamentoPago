@@ -15,6 +15,17 @@
 :rocket: Project with OO approaches and Java applications. 
 
 > :rocket: **Projeto com abordagens de OO e aplicações em Java.**
+
+## O.O approaches on the project / Abordagens de OO no projeto
+- Class concept / Conceito de classe;
+- Concept of abstract class / Conceito de classe abstrata;
+- Interface concept / Conceito de Interface;
+- Concept of encapsulation / Conceito de encapsulamento.
+- Concept of polymorphism (Liskov principle) / Conceito de polimorfismo (Princípio de Liskov).
+- Concept of inheritance / Conceito de herança.
+- Concept of abstract methods / Conceito de métodos abstratos.
+- Concept of overloading methods / Conceito de sobrecarga de métodos.
+
 ## UML Class Diagram v2.5 / Diagrama de Classe UML v2.5
 <img src="https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/blob/main/UMLDiagram.png" width="1200"/>
 
