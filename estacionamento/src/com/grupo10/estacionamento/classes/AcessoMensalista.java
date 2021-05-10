@@ -5,126 +5,65 @@
  */
 package com.grupo10.estacionamento.classes;
 
-import com.grupo10.estacionamento.exceptions.PeriodoInvalidoException;
+import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.Month;
-import java.time.Period;
 
 /**
+ * <p>
+ * Classe <b>AcessoMensalista </b> </p>
+ * <p>
+ * Define a estrutura de um acesso de um mensalista na Aplicação</p>
+ * <p>
+ * Herda atributo e métodos da classe abstrata Acesso</p>
  *
- * @Lucas Ramon
+ * @author Lucas Ramon
+ * @since may 2021
+ * @version 1.0
  */
-public abstract class Acesso {
-    
-    protected LocalDateTime entrada;
-    protected LocalDateTime saida;
-    protected Duration duracao;
-    protected Period periodo;
-    protected int id;
-    protected double tarifa;
-    protected double valor;
+public class AcessoMensalista extends Acesso {
 
-    public Acesso() {
+    /**
+     * Construtor default da classe  <b>AcessoMensalista</b> <br><br>
+     * <b> uso:</b> <br>
+     * AcessoMensalista acesso = new AcessoMensalista();
+     */
+    public AcessoMensalista() {
+        this.valor = 0;
+        this.tarifa = 500;
     }
 
-    public Acesso(LocalDateTime entrada, LocalDateTime saida, double tarifa, double valor) {
+    /**
+     * <b>método</b> calculaValor<br>
+     * <b>uso:</b> <br>
+     * acessoMensalista.calculaValor();<br>
+     * Este método calcula o custo de um acesso mensalista.
+     *
+     * @param duracao faz referência a duracao do acesso
+     * @param tarifa faz referência a tarifa aplicada no calculo do custo
+     * @return <b>double:</b> custo do acesso
+     */
+    @Override
+    public double calculaValor(Duration duracao, double tarifa) {
+        return 0;
+    }
+
+    /**
+     * Setter do atributo <b>entrada</b><br>
+     * <b>uso:</b><br>
+     * acesso.setEntrada(LocalDate dia, LocalTime hora);
+     *
+     * @param dia faz referência a data da entrada do acesso.
+     * @param hora faz referência a hora da entrada do acesso.
+     * @throws EstacionamentoFechadoException Não é possivel atribuir o mesmo
+     * dia e hora da entrada a saida.
+     */
+    @Override
+    public void setEntrada(LocalDate dia, LocalTime hora) throws EstacionamentoFechadoException {
+        LocalDateTime entrada = LocalDateTime.of(dia, hora);
         this.entrada = entrada;
-        this.saida = saida;
-        this.tarifa = tarifa;
-        this.valor = valor;
-    }
-    
-    
-    public LocalDateTime getEntrada() {
-        return entrada;
     }
 
-    public void setEntrada(LocalDate dia,LocalTime hora) {
-        LocalDateTime entrada= LocalDateTime.of(dia, hora);
-        this.entrada= entrada;
-    }
-
-    public LocalDateTime getSaida() {
-        return saida;
-    }
-
-    public void setSaida(LocalDate dia, LocalTime hora) throws PeriodoInvalidoException {  
-        
-        LocalDateTime saida = LocalDateTime.of(dia, hora);
-        if(saida.equals(this.getEntrada())){
-            throw new PeriodoInvalidoException();
-        }
-        else{
-             this.saida = saida;
-        }
-       
-    }
-
-    public double getTarifa() {
-        return tarifa;
-    }
-
-    public void setTarifa(double tarifa) {
-        this.tarifa = tarifa;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    public Duration getDuracao() {
-        return duracao;
-    }
-    
-    public Period getPeriodo() {
-        return periodo;
-    }
-
-    public void caculaPeriodo() {
-        int anoEntrada=this.entrada.getYear();
-        int mesEntrada=this.entrada.getMonthValue();
-        int diaEntrada=this.entrada.getDayOfMonth();
-        
-        LocalDate entrada = LocalDate.of(anoEntrada, mesEntrada, diaEntrada);
-        
-        int anoSaida=this.saida.getYear();
-        int mesSaida=this.saida.getMonthValue();
-        int diaSaida=this.saida.getDayOfMonth();
-        
-        LocalDate saida = LocalDate.of(anoSaida, mesSaida, diaSaida);
-        
-        Period periodo = Period.between(entrada, saida);
-        
-        this.periodo = periodo;
-    }
-
-    public void setDuracao(Duration duracao) {
-        this.duracao = duracao;
-    }
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    
-    public final Duration calculaDuracao(){   
-        duracao=Duration.between(this.entrada,this.saida);   
-        return this.duracao;
-    }
-   
-    public abstract double calculaValor(Duration duracao);
-   
-    
-    
 }

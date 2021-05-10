@@ -7,9 +7,9 @@ package com.grupo10.estacionamento.exceptions;
 
 /**
  * <p>
- * Classe <b>DadosPessoaisIncompletosException</b> </p>
+ * Classe <b>EstacionamentoFechadoException</b> </p>
  * <p>
- * Define a estrutura da exception DadosPessoaisIncompletos</p>
+ * Define a estrutura da exception EstacionamentoFechado</p>
  * <p>
  * Herda atributo e métodos da classe Exception</p>
  *
@@ -17,9 +17,9 @@ package com.grupo10.estacionamento.exceptions;
  * @since may 2021
  * @version 1.0
  */
-public class DadosPessoaisIncompletosException extends Exception {
+public class EstacionamentoFechadoException extends Exception {
 
-    public DadosPessoaisIncompletosException() {
+    public EstacionamentoFechadoException() {
         super("Exception in thread:com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException");
     }
 

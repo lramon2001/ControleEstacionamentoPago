@@ -13,18 +13,17 @@ import java.util.ArrayList;
  * @author Lucas Ramon
  */
 public class VeiculoMensalista extends Veiculo {
-     /*
+
+    /*
     1-Criar atributo proprietario;
     2-Criar os métodos getters e setters.
     3-Implementar construtores.
-    */
-
+     */
     private Proprietario proprietario;
 
-    
     public VeiculoMensalista(Proprietario proprietario) {
         this.proprietario = proprietario;
-        
+
     }
 
     public VeiculoMensalista(Proprietario proprietario, String marca, String modelo, String numeroPlaca) {
@@ -42,6 +41,5 @@ public class VeiculoMensalista extends Veiculo {
     public void setProprietario(Proprietario proprietario) {
         this.proprietario = proprietario;
     }
-    
-   
+
 }

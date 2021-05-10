@@ -11,93 +11,194 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * <p>
+ * Classe <b>Veiculo </b> </p>
+ * <p>
+ * Define a estrutura de um veículo na Aplicação</p>
  *
+ * @author Adrian Soares
  * @author Lucas Ramon
+ * @since may 2021
+ * @version 1.0
+ *
  */
 public class Veiculo {
+
     /*
     1-Criar atributos marca,modelo e numero da Placa;
     2-Criar os métodos getters e setters.
     3-Implementar construtores.
-    */
+     */
     private String marca;
     private String modelo;
     private String numeroPlaca;
-    private java.util.List<Acesso> acessos=new ArrayList<Acesso>();
-    
+    private java.util.List<Acesso> acessos = new ArrayList<Acesso>();
+
+    /**
+     * Construtor default da classe  <b>Veiculo</b> <br><br>
+     * <b> uso:</b> <br>
+     * Veiculo veiculo = new Veiculo(); <br>
+     * O objeto inicia-se com um ArrayList do tipo  <b>Acesso</b> para receber os
+     * acessos.
+     */
     public Veiculo() {
-        acessos=new ArrayList<>();
+        acessos = new ArrayList<>();
     }
 
+    /**
+     * Construtor sobrecarregado da classe <b>Veiculo</b> <br> <br>
+     * <b>uso:</b><br>
+     * Veiculo veiculo= new Veiculo ("marca","modelo","numeroDaPlaca");<br> <br>
+     * <b>onde:</b> <br>
+     *
+     * @param marca faz referência a marca do carro.
+     * @param modelo faz referênica ao modelo do carro.
+     * @param numeroPlaca faz referência a placa do carro.
+     */
     public Veiculo(String marca, String modelo, String numeroPlaca) {
-        acessos=new ArrayList<>();
+        acessos = new ArrayList<>();
         this.marca = marca;
         this.modelo = modelo;
         this.numeroPlaca = numeroPlaca;
     }
 
+    /**
+     * Getter do atributo <b>marca</b><br>
+     * <b>uso:</b><br>
+     * veiculo.getMarca();
+     *
+     * @return <b>String: </b> estado do atributo marca
+     */
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String nome) throws DadosVeiculosIncompletosException{
-        if(nome.length()==0){
+    /**
+     * Setter do atributo <b>marca</b> <br>
+     * <b> uso:</b><br>
+     * veiculo.setMarca(String marca);
+     *
+     * @param marca: <b>String</b>
+     * @throws DadosVeiculosIncompletosException Não é possível atribuir
+     * <b>null</b> ao parâmetro.
+     */
+    public void setMarca(String marca) throws DadosVeiculosIncompletosException {
+        if (marca.isEmpty()) {
             throw new DadosVeiculosIncompletosException();
-        }
-        else{
-            this.marca = nome;
+        } else {
+            this.marca = marca;
         }
     }
 
+    /**
+     * Getter do atributo <b>modelo</b><br>
+     * <b>uso:</b><br>
+     * veiculo.getModelo();
+     *
+     * @return <b>String: </b> estado do atributo marca
+     *
+     */
     public String getModelo() {
         return modelo;
     }
 
+    /**
+     * Setter do atributo <b>modelo</b><br>
+     * <b> uso:</b><br>
+     * veiculo.setModelo(String modelo);
+     *
+     * @param modelo: <b>String</b>
+     * @throws DadosVeiculosIncompletosException <br>
+     * Não é possível atribuir <b>null</b> ao parâmetro.
+     *
+     */
     public void setModelo(String modelo) throws DadosVeiculosIncompletosException {
-        if(modelo.length()==0){
-          throw new DadosVeiculosIncompletosException();
-        }
-        else{
+        if (modelo.isEmpty()) {
+            throw new DadosVeiculosIncompletosException();
+        } else {
             this.modelo = modelo;
         }
-        
+
     }
 
+    /**
+     * Getter do atributo <b>numeroPlaca</b><br>
+     * <b>uso:</b><br>
+     * veiculo.getNumeroPlaca();
+     *
+     * @return <b>String: </b> estado do atributo numero da placa
+     */
     public String getNumeroPlaca() {
         return numeroPlaca;
     }
 
+    /**
+     *
+     * Setter do atributo <b>numeroPlaca</b><br>
+     * <b> uso:</b><br>
+     * veiculo.setNumeroPlaca(String numeroDaPlaca);
+     *
+     * @param numeroPlaca: <b>String</b>
+     * @throws DadosVeiculosIncompletosException <br>
+     * Não é possível atribuir <b>null</b> ao parâmetro.
+     */
     public void setNumeroPlaca(String numeroPlaca) throws DadosVeiculosIncompletosException {
-        if(numeroPlaca.length()==0){
+        if (numeroPlaca.isEmpty()) {
             throw new DadosVeiculosIncompletosException();
         }
         this.numeroPlaca = numeroPlaca;
     }
-    
-     public void setAcesso(Acesso a){
-        acessos.add(a);
+
+    /**
+     * Setter do atributo <b>acessos</b> que é um ArrayList de <b> Acesso</b>
+     * <br>
+     * <b> uso:</b><br>
+     * veiculo.setAcesso(Acesso acesso);
+     *
+     * @param acesso: <b>Acesso</b>
+     */
+    public void setAcesso(Acesso acesso) {
+        acessos.add(acesso);
     }
 
+    /**
+     * Getter do atributo <b>acessos</b><br>
+     * <b>uso:</b><br>
+     * veiculo.getAcessos();
+     *
+     * @return <b>List(Acesso): </b> lista com todos os acessos do Veiculo
+     */
     public List<Acesso> getAcessos() {
         return acessos;
     }
-    
-    public String mostraTodosAcessosDoVeiculo(){
-       StringBuilder lista = new StringBuilder();
+
+    /**
+     * <b>método</b> mostraTodosAcessosDoVeiculo<br>
+     * <b>uso:</b> <br>
+     * veiculo.mostraTodosAcessosDoVeiculo();<br>
+     * Este método varre a lista de acessos e retorna todos o acessos com a
+     * informações recorrentes . Utiliza-se da Classe StringBuilder que é útil
+     * para otimização de alocação de memória, pois ao concatenar as Strings não
+     * são gerados novos endereços de memória.
+     *
+     * @return <b>String:</b> Informações de todos os acessos;
+     */
+    public String mostraTodosAcessosDoVeiculo() {
+        StringBuilder lista = new StringBuilder();
         for (Acesso acesso : acessos) {
-            if(acessos.isEmpty()==false){
-            LocalDateTime entrada = acesso.getEntrada();
-            LocalDateTime saida = acesso.getSaida();
-            lista.append("Entrada:\n" + "Dia: " + entrada.getDayOfMonth()+"/"+entrada.getMonth()+"/"+saida.getYear())
-                    .append("\nHora: " + entrada.toLocalTime().toString())
-                    .append("\nSaída:\n" + "Dia: " + saida.getDayOfMonth()+"/"+saida.getMonth()+"/"+saida.getYear())
-                    .append("\nHora: " + saida.toLocalTime().toString())
-                    .append("\nTempo de permanência: ").append(acesso.duracao.toHours()+"h "+acesso.duracao.toMinutes()+"min")
-                    .append("\nValor a ser cobrado: ").append(acesso.getValor() + "R$\n\n");
+            if (acessos.isEmpty() == false) {
+                LocalDateTime entrada = acesso.getEntrada();
+                LocalDateTime saida = acesso.getSaida();
+                lista.append("Entrada:\n" + "Dia: " + entrada.getDayOfMonth() + "/" + entrada.getMonth() + "/" + saida.getYear())
+                        .append("\nHora: " + entrada.toLocalTime().toString())
+                        .append("\nSaída:\n" + "Dia: " + saida.getDayOfMonth() + "/" + saida.getMonth() + "/" + saida.getYear())
+                        .append("\nHora: " + saida.toLocalTime().toString())
+                        .append("\nTempo de permanência: ").append(acesso.duracao.toHoursPart() + "h " + acesso.duracao.toMinutesPart() + "min")
+                        .append("\nValor a ser cobrado: ").append(acesso.getValor() + "R$\n\n");
             }
         }
         return lista.toString();
-        
+
     }
-     
+
 }
