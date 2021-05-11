@@ -151,10 +151,10 @@ public class Main {
 
                     } catch (DadosPessoaisIncompletosException erroDadosProprietarioIncompleto) {
                         System.out.println(erroDadosProprietarioIncompleto.getMessage());
-                        JOptionPane.showMessageDialog(null, "Proprietario com dados Pessoais incompletos");
+                        JOptionPane.showMessageDialog(null, "Proprietario com dados Pessoais incompletos.");
                     } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
                         System.out.println(erroDadosVeiculosIncompleto.getMessage());
-                        JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
+                        JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos.");
                     }
 
                     break;
@@ -165,7 +165,7 @@ public class Main {
                      * pago; 5-adicionar o acesso a lista de acessos; 6-Adicionar o custo do acesso
                      * a lista de faturamento;
                      */
-                    String strPlacaRotativo = JOptionPane.showInputDialog("Digite o numero da placa");
+                    String strPlacaRotativo = JOptionPane.showInputDialog("Digite o placa do veiculo.");
                     Veiculo veiculoRotativo = veiculos.buscar(strPlacaRotativo);
                     try {
                         String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digite a data da entrada");
