@@ -38,6 +38,11 @@
 
 > **Esse projeto não segue nenhum requisito de versionamento.**
 
+## Documentation / Documentação
+- This project was documented using the Java documentation API (Javadoc). Click on [This link](https://lramon2001.github.io/docOO/apidocs/) to see the documentation.
+
+> **Este projeto foi documentado utilizando a API de documentação java (Javadoc). Para ver a documentação clique [Neste link](https://lramon2001.github.io/docOO/apidocs/)**
+
 ## Commits History / Histórico de commits
 - See [Commit History](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/pulse) for contributors
 
