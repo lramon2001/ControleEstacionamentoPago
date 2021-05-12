@@ -130,7 +130,7 @@ public class CadastroVeiculos implements CadastroInterface<Veiculo> {
         Veiculo veiculoProcurado = null;
         int frequencia = 0;
         for (int i = 0; i < veiculos.size(); i++) {
-            if (veiculos.get(i).getNumeroPlaca().equals(placa)) {
+            if (veiculos.get(i).getNumeroPlaca().equalsIgnoreCase(placa)) {
                 veiculoProcurado = veiculos.get(i);
 
                 frequencia++;
