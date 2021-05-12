@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.grupo10.estacionamento.classes;
+package classes;
 
 /**
  *
  */
-import com.grupo10.estacionamento.interfaces.CadastroInterface;
+import interfaces.CadastroInterface;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;

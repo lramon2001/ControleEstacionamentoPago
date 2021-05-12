@@ -1,17 +1,17 @@
-package com.grupo10.estacionamento.app;
+package app;
 
-import com.grupo10.estacionamento.classes.Acesso;
-import com.grupo10.estacionamento.classes.AcessoMensalista;
-import com.grupo10.estacionamento.classes.CadastroAcessos;
-import com.grupo10.estacionamento.classes.CadastroProprietarios;
-import com.grupo10.estacionamento.classes.CadastroVeiculos;
-import com.grupo10.estacionamento.classes.Proprietario;
-import com.grupo10.estacionamento.classes.Veiculo;
-import com.grupo10.estacionamento.classes.VeiculoMensalista;
-import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
-import com.grupo10.estacionamento.exceptions.DadosVeiculosIncompletosException;
-import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
-import com.grupo10.estacionamento.exceptions.PeriodoInvalidoException;
+import classes.Acesso;
+import classes.AcessoMensalista;
+import classes.CadastroAcessos;
+import classes.CadastroProprietarios;
+import classes.CadastroVeiculos;
+import classes.Proprietario;
+import classes.Veiculo;
+import classes.VeiculoMensalista;
+import exceptions.DadosPessoaisIncompletosException;
+import exceptions.DadosVeiculosIncompletosException;
+import exceptions.EstacionamentoFechadoException;
+import exceptions.PeriodoInvalidoException;
 
 import java.text.spi.NumberFormatProvider;
 import java.time.Duration;

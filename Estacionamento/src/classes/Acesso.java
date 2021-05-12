@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.grupo10.estacionamento.classes;
+package classes;
 
-import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
-import com.grupo10.estacionamento.exceptions.PeriodoInvalidoException;
+import exceptions.EstacionamentoFechadoException;
+import exceptions.PeriodoInvalidoException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

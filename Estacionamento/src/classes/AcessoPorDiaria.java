@@ -1,6 +1,6 @@
-package com.grupo10.estacionamento.classes;
+package classes;
 
-import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
+import exceptions.EstacionamentoFechadoException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
