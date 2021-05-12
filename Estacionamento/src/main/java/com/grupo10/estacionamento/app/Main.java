@@ -165,7 +165,7 @@ public class Main {
                      * pago; 5-adicionar o acesso a lista de acessos; 6-Adicionar o custo do acesso
                      * a lista de faturamento;
                      */
-                    String strPlacaRotativo = JOptionPane.showInputDialog("Digite o placa do veiculo.");
+                    String strPlacaRotativo = JOptionPane.showInputDialog("Digite a placa do veiculo.");
                     Veiculo veiculoRotativo = veiculos.buscar(strPlacaRotativo);
                     try {
                         String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digite a data da entrada");
@@ -196,7 +196,7 @@ public class Main {
                         acessos.cadastrar(acessoRotativo);
                         veiculoRotativo.setAcesso(acessoRotativo);
                     } catch (NullPointerException nullPointerException) {
-                        JOptionPane.showMessageDialog(null, "Veiculo não encontrado.");
+                        JOptionPane.showMessageDialog(null, "ERROR!");
 
                     } catch (NumberFormatException numberFormatException) {
                         JOptionPane.showMessageDialog(null, "Formato ilegal para data ou hora.");
@@ -267,7 +267,7 @@ public class Main {
                         System.out.println(erroDeEstacionamentoFechado.getMessage());
                         JOptionPane.showMessageDialog(null, "Estacionamento Fechado.");
                     } catch (NullPointerException nullPointerException) {
-                        JOptionPane.showMessageDialog(null, "Veículo não encontrado.");
+                        JOptionPane.showMessageDialog(null, "ERROR!");
                     } catch (NumberFormatException numberFormatException) {
                         JOptionPane.showMessageDialog(null, "Formato ilegal para data ou hora.");
                         x = 4;
