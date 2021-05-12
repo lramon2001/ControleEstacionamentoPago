@@ -48,6 +48,11 @@ public class AcessoPorMinuto extends Acesso {
      */
     @Override
     public double calculaValor(Duration duracao, double tarifa) {
+        /*
+            O método calculaValor da classe AcessoPorMinuto recebe uma duração 
+            e a transforma em um valor inteiro. Guardando na variável valor, o
+            produto feito entre número de minutos e a tarifa do estacionamento. 
+        */
         double valor = duracao.toMinutes() * tarifa;
         return valor;
     }
