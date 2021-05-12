@@ -38,7 +38,7 @@ public class AcessoPorHora extends Acesso {
          * 1- instânciar um objeto da classe AcessoPorQuinze
          * 2- colocar o valor na variável preço o retorno da calculaValor do objeto da classe AcessoPorQuinze
          * 3- calcular um valor do desconto
-         * 4- retornar o preço com desconto
+         * 4- retornar o preço com desconto 
         */
         Acesso acesso = new AcessoPorQuinze();
         double preco = acesso.calculaValor(duracao, tarifa);
