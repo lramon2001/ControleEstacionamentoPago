@@ -1,10 +1,8 @@
 package app;
 
+import classes.SistemaEstacionamento;
 import classes.Acesso;
 import classes.AcessoMensalista;
-import classes.CadastroAcessos;
-import classes.CadastroProprietarios;
-import classes.CadastroVeiculos;
 import classes.Proprietario;
 import classes.Veiculo;
 import classes.VeiculoMensalista;
@@ -43,9 +41,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    static CadastroVeiculos veiculos = new CadastroVeiculos();
-    static CadastroProprietarios proprietarios = new CadastroProprietarios();
-    static CadastroAcessos acessos = new CadastroAcessos();
+    static SistemaEstacionamento sisEstacionamento = new SistemaEstacionamento();
 
     public static void main(String[] args) throws Exception {
         menu();
@@ -94,8 +90,8 @@ public class Main {
                         String strPlaca = JOptionPane.showInputDialog("Digite a placa do veículo:");
                         veiculo.setNumeroPlaca(strPlaca);
 
-                        if (veiculos.buscar(strPlaca) == null) {
-                            veiculos.cadastrar(veiculo);
+                        if (sisEstacionamento.buscarVeiculo(strPlaca) == null) {
+                        	sisEstacionamento.cadastrarVeiculo(veiculo);
                         }
                     } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
                         System.out.println(erroDadosVeiculosIncompleto.getMessage());
@@ -130,7 +126,7 @@ public class Main {
                         p.setnResidencial(strNresidencial);
                         System.out.println("com.grupo10.estacionamento.app.Main.menu()");
                         System.out.println(strCnh);
-                        proprietarios.cadastrar(p);
+                        sisEstacionamento.cadastrarProprietario(p);
                         /*
                          * -Instanciando o Veiculo com o método de substuição de Liskov; -Polimorfismo;
                          */
@@ -145,8 +141,8 @@ public class Main {
                         String strPlacaMensalista = JOptionPane.showInputDialog("Digite a placa do veículo:");
                         vm.setNumeroPlaca(strPlacaMensalista);
 
-                        if (veiculos.buscar(strPlacaMensalista) == null) {
-                            veiculos.cadastrar(vm);
+                        if (sisEstacionamento.buscarVeiculo(strPlacaMensalista) == null) {
+                        	sisEstacionamento.cadastrarVeiculo(vm);
                         }
 
                     } catch (DadosPessoaisIncompletosException erroDadosProprietarioIncompleto) {
@@ -166,7 +162,7 @@ public class Main {
                      * a lista de faturamento;
                      */
                     String strPlacaRotativo = JOptionPane.showInputDialog("Digite a placa do veiculo.");
-                    Veiculo veiculoRotativo = veiculos.buscar(strPlacaRotativo);
+                    Veiculo veiculoRotativo = sisEstacionamento.buscarVeiculo(strPlacaRotativo);
                     try {
                         String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digite a data da entrada");
                         int[] inputDataEntradaRotativo = GerenciamentoEstacionamento.lerData(strDataEntradaRotativo);
@@ -193,7 +189,7 @@ public class Main {
 
                         Acesso acessoRotativo = GerenciamentoEstacionamento.classificaAcesso(entradaRotativo,
                                 saidaRotativo);
-                        acessos.cadastrar(acessoRotativo);
+                        sisEstacionamento.cadastrarAcesso(acessoRotativo);
                         veiculoRotativo.setAcesso(acessoRotativo);
                     } catch (NullPointerException nullPointerException) {
                         JOptionPane.showMessageDialog(null, "ERROR!");
@@ -218,7 +214,7 @@ public class Main {
                      * retorno do metódo é capaz de retornar um veículo;
                      */
                     String strPlaca = JOptionPane.showInputDialog("Digite o numero da placa:");
-                    Veiculo vm = veiculos.buscar(strPlaca);
+                    Veiculo vm = sisEstacionamento.buscarVeiculo(strPlaca);
                     /*f
                      * A instâcia "acesso" será utilizada para compor o acesso ao veículo;
                      */
@@ -292,7 +288,7 @@ public class Main {
 
                     vm.setAcesso(acesso);
 
-                    acessos.cadastrar(acesso);
+                    sisEstacionamento.cadastrarAcesso(acesso);
 
                     break;
 
@@ -301,7 +297,7 @@ public class Main {
                      * 1-Chamar o método listar do atributo veiculos que é uma lista guarda objetos
                      * da classe Veiculo por meio desta referênica;
                      */
-                    veiculos.listar();
+                	sisEstacionamento.listarVeiculos();
                     break;
                 case 6:
 
@@ -309,10 +305,10 @@ public class Main {
                      * 1-Chamar o método listar do atributo proprietarios que é uma lista guarda
                      * objetos da classe Proprietario por meio desta referênica;
                      */
-                    proprietarios.listar();
+                	sisEstacionamento.listarProprietarios();
                     break;
                 case 7:
-                    veiculos.listarAcessos();
+                	sisEstacionamento.listarAcessos();
                     break;
                 case 8:
                     exibeFaturamento();
@@ -334,17 +330,17 @@ public class Main {
         String listaFaturamento = "Faturamento;\n\n";
         double total = 0;
 
-        for (int i = 0; i < proprietarios.getProprietarios().size(); i++) {
-            listaFaturamento += "Mensalista: " + proprietarios.getProprietarios().get(i).getNome() + "\n" + "CNH:"
-                    + proprietarios.getProprietarios().get(i).getCnh() + "\n" + "Valor:  500 R$\n";
+        for (int i = 0; i < sisEstacionamento.getProprietarios().size(); i++) {
+            listaFaturamento += "Mensalista: " + sisEstacionamento.getProprietarios().get(i).getNome() + "\n" + "CNH:"
+                    + sisEstacionamento.getProprietarios().get(i).getCnh() + "\n" + "Valor:  500 R$\n";
             total += 500;
         }
-        for (int i = 0; i < acessos.getAcessos().size(); i++) {
+        for (int i = 0; i < sisEstacionamento.getAcessos().size(); i++) {
             listaFaturamento += "Acesso Rotativo \n" + "Tempo de permanência: "
-                    + acessos.getAcessos().get(i).getDuracao().toHoursPart() + "h "
-                    + acessos.getAcessos().get(i).getDuracao().toMinutesPart() + "min" + "\n Valor: "
-                    + acessos.getAcessos().get(i).getValor() + " R$";
-            total += acessos.getAcessos().get(i).getValor();
+                    + sisEstacionamento.getAcessos().get(i).getDuracao().toHoursPart() + "h "
+                    + sisEstacionamento.getAcessos().get(i).getDuracao().toMinutesPart() + "min" + "\n Valor: "
+                    + sisEstacionamento.getAcessos().get(i).getValor() + " R$";
+            total += sisEstacionamento.getAcessos().get(i).getValor();
         }
         listaFaturamento += "\n\nFaturamento Total: " + total + "R$";
         JOptionPane.showMessageDialog(null, listaFaturamento);
