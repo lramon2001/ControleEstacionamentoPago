@@ -21,7 +21,7 @@ public class SistemaEstacionamento {
         acessos.cadastrar(acesso);
     }
     public void listarAcessos(){
-    	acessos.listar();
+    	veiculos.listarAcessos();
     }
     public void listarVeiculos(){
     	veiculos.listar();
