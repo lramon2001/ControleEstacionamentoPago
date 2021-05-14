@@ -250,7 +250,7 @@ public class Main {
                     4-Setar atributos do acesso;
                     3-Colocar o acesso na referencia de acessos de veiculo;
                      */
- /*
+                              /*
                     1-O método buscar procura na lista de veículos a referência pela a placa,atribuindo como resultado
                     da busca o objeto procurado haja vista que o retorno do metódo é capaz de retornar um veículo;
                      */
@@ -356,7 +356,7 @@ public class Main {
                     /*
                      1-Exibir mensagem de despedida amigável ao usuário;
                      */
-                    JOptionPane.showMessageDialog(null, " UNB License © GRUPO10"
+                    JOptionPane.showMessageDialog(null, " UNB © GRUPO10"
                             + "\n"
                             + "\n"
                             + "\nLucas- Paulo- Adrian- Arthur");
