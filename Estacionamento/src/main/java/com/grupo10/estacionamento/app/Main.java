@@ -371,8 +371,7 @@ public class Main {
                     /*
                      1-Exibir mensagem de despedida amigável ao usuário;
                      */
-                    JOptionPane.showMessageDialog(null, " UNB © GRUPO10"
-                            + "\n"
+                    JOptionPane.showMessageDialog(null, "         UNB © GRUPO10  "
                             + "\n"
                             + "\nLucas- Paulo- Adrian- Arthur");
                     x = 0;
@@ -385,14 +384,16 @@ public class Main {
     public static void exibeFaturamento() {
         String listaFaturamento = "Faturamento:\n\n";
         double total = 0;
-
-        for (int i = 0; i < proprietarios.getProprietarios().size(); i++) {
-            listaFaturamento += "Receitas de mensalidades\n" + "Mensalista: " + proprietarios.getProprietarios().get(i).getNome()
-                    + "\n" + "CNH:" + proprietarios.getProprietarios().get(i).getCnh() + "\n"
-                    + "Valor:  500 R$\n";
+        Veiculo vmensalista = new VeiculoMensalista();
+        listaFaturamento+="Receita de mensalidades: \n\n";
+        for (int i = 0; i < veiculos.getVeiculos().size(); i++) {
+            if(veiculos.getVeiculos().get(i).getClass()== vmensalista.getClass()){
+            listaFaturamento+="Mensalidade: "+(i+1)+"\nPlaca do veículo mensalista : "+veiculos.getVeiculos().get(i).getNumeroPlaca()
+                    +"\nValor da mensalidade: 500 R$\n\n";
             total += 500;
+            }
         }
-        listaFaturamento += "Receitas de acessos rotativos \n";
+        listaFaturamento += "Receitas de acessos rotativos: \n";
         for (int i = 0; i < acessos.getAcessos().size(); i++) {
             if (acessos.getAcessos().get(i).getValor() != 0) {
                 listaFaturamento += "Tempo de permanência: " + acessos.getAcessos().get(i).getDuracao().toHoursPart() + "h "
@@ -406,5 +407,3 @@ public class Main {
         JOptionPane.showMessageDialog(null, listaFaturamento);
     }
 }
-
-
