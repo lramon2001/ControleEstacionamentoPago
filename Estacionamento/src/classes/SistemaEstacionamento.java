@@ -42,4 +42,7 @@ public class SistemaEstacionamento {
     public List<Proprietario> getProprietarios() {
         return proprietarios.getProprietarios();
     }
+    public List<Veiculo> getVeiculos() {
+        return veiculos.getVeiculos();
+    }
 }
