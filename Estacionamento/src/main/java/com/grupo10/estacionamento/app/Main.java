@@ -121,7 +121,7 @@ public class Main {
                         String strNome = JOptionPane.showInputDialog("Digte o nome do proprietario:");
                         p.setNome(strNome);
 
-                        String strCnh = JOptionPane.showInputDialog("Digte o numero da CNH:");
+                        String strCnh = JOptionPane.showInputDialog("Digte o número da CNH:");
                         p.setCnh(strCnh);
 
                         String strEndereco = JOptionPane.showInputDialog("Digte o endereço do proprietario:");
