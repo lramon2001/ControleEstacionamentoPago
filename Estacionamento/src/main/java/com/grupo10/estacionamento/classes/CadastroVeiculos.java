@@ -182,11 +182,11 @@ public class CadastroVeiculos implements CadastroInterface<Veiculo> {
      */
     public void listarAcessos() {
 
-        String lista = "Acessos\n\n";
+       String lista = "Acessos\n\n";
         int i = 0;
         for (Veiculo v : veiculos) {
             if (v.mostraTodosAcessosDoVeiculo().length() > 0) {
-                lista += "Veiculo:" + (i + 1) + "\nPlaca:" + v.getNumeroPlaca() + "\nModelo:" + v.getModelo() + "\n" + v.mostraTodosAcessosDoVeiculo();
+                lista += "Acessos do veículo nº : " + (i + 1) +" do cadastro de veículos. "+"\nPlaca do veículo nº "+(i+1) +": "+ v.getNumeroPlaca() + "\nModelo do veículo nº "+(i+1) +": "+ v.getModelo() + "\n" + v.mostraTodosAcessosDoVeiculo();
                 i++;
             }
 
