@@ -219,19 +219,19 @@ public class Main {
                         break;
                     }
                     try {
-                        String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digte a data da entrada");
+                        String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digte a data da entrada no formato DD/MM/AA:");
                         int[] inputDataEntradaRotativo = GerenciamentoEstacionamento.lerData(strDataEntradaRotativo);
                         LocalDate dataEntradaRotativo = LocalDate.of(inputDataEntradaRotativo[2], inputDataEntradaRotativo[1], inputDataEntradaRotativo[0]);
 
-                        String strHoraEntradaRotativo = JOptionPane.showInputDialog("Digite a hora da entrada");
+                        String strHoraEntradaRotativo = JOptionPane.showInputDialog("Digite a hora da entrada no formato HH:MM :");
                         int[] inputHoraEntradaRotativo = GerenciamentoEstacionamento.lerHora(strHoraEntradaRotativo);
                         LocalTime horaEntradaRotativo = LocalTime.of(inputHoraEntradaRotativo[0], inputHoraEntradaRotativo[1]);
 
-                        String strDataSaidaRotativo = JOptionPane.showInputDialog(null, "Digte a data da saída");
+                        String strDataSaidaRotativo = JOptionPane.showInputDialog(null, "Digte a data da saída no formato DD/MM/AA :");
                         int[] inputDataSaidaRotativo = GerenciamentoEstacionamento.lerData(strDataSaidaRotativo);
                         LocalDate dataSaidaRotativo = LocalDate.of(inputDataSaidaRotativo[2], inputDataSaidaRotativo[1], inputDataSaidaRotativo[0]);
 
-                        String strHoraSaidaRotativo = JOptionPane.showInputDialog("Digite a hora da saída");
+                        String strHoraSaidaRotativo = JOptionPane.showInputDialog("Digite a hora da saída no formato HH:MM :");
                         int[] inputHoraSaidaRotativo = GerenciamentoEstacionamento.lerHora(strHoraSaidaRotativo);
                         LocalTime horaSaidaRotativo = LocalTime.of(inputHoraSaidaRotativo[0], inputHoraSaidaRotativo[1]);
 
@@ -286,7 +286,7 @@ public class Main {
                     setar a data no Objeto dataEntrada;
                      */
                     try {
-                        String strDataEntrada = JOptionPane.showInputDialog(null, "Digite a data da entrada");
+                        String strDataEntrada = JOptionPane.showInputDialog(null, "Digite a data da entrada no formato DD:MM:AA :");
                         int[] inputDataEntrada = GerenciamentoEstacionamento.lerData(strDataEntrada);
                         LocalDate dataEntrada = LocalDate.of(inputDataEntrada[2], inputDataEntrada[1], inputDataEntrada[0]);
 
@@ -295,7 +295,7 @@ public class Main {
                     Ele basicamente retorna um vetor de inteiros de duas posições(inputHoraEntrada) que é utlizado para
                     setar a hora no Objeto horaEntrada;
                          */
-                        String strHoraEntrada = JOptionPane.showInputDialog("Digite a hora da entrada");
+                        String strHoraEntrada = JOptionPane.showInputDialog("Digite a hora da entrada no formato HH:MM :");
                         int[] inputHoraEntrada = GerenciamentoEstacionamento.lerHora(strHoraEntrada);
                         LocalTime horaEntrada = LocalTime.of(inputHoraEntrada[0], inputHoraEntrada[1]);
 
@@ -303,11 +303,11 @@ public class Main {
                     O método setEntrada utiliza uma data e uma hora para setar a entrada; 
                     Esta data e hora foram obtidas pelo processos descritos acima.
                          */
-                        String strDataSaida = JOptionPane.showInputDialog(null, "Digite a data da saída");
+                        String strDataSaida = JOptionPane.showInputDialog(null, "Digite a data da saída no formato DD:MM:AA");
                         int[] inputDataSaida = GerenciamentoEstacionamento.lerData(strDataSaida);
                         LocalDate dataSaida = LocalDate.of(inputDataSaida[2], inputDataSaida[1], inputDataSaida[0]);
 
-                        String strHoraSaida = JOptionPane.showInputDialog("Digite a hora da saída");
+                        String strHoraSaida = JOptionPane.showInputDialog("Digite a hora da saída no formato HH:MM :");
                         int inputHoraSaida[] = GerenciamentoEstacionamento.lerHora(strHoraSaida);
                         LocalTime horaSaida = LocalTime.of(inputHoraSaida[0], inputHoraSaida[1]);
 
