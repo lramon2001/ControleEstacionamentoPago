@@ -170,12 +170,7 @@ public class Main {
 
                     String strPlacaMensalista = JOptionPane.showInputDialog("Digte a placa do veículo:");
                     vm.setNumeroPlaca(strPlacaMensalista);
-
-                    if (sisEstacionamento.buscarVeiculo(strPlacaMensalista) == null) {
-                    	sisEstacionamento.cadastrarVeiculo(vm);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Veículo já cadastrado.");
-                    }
+                    
                     String strCnhMensalista = JOptionPane.showInputDialog("Digte o número da CNH do proprietário:");
 
                     Proprietario proprietario = new Proprietario();
@@ -184,6 +179,13 @@ public class Main {
 
                     if (proprietario == null) {
                         JOptionPane.showMessageDialog(null, "Proprietário não cadastrado!");
+                        break;
+                    }
+
+                    if (sisEstacionamento.buscarVeiculo(strPlacaMensalista) == null) {
+                        sisEstacionamento.cadastrarVeiculo(vm);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Veículo já cadastrado.");
                     }
 
                 } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
@@ -201,10 +203,15 @@ public class Main {
                     5-adicionar o acesso a lista de acessos;
                     6-Adicionar o custo do acesso a lista de faturamento;
                      */
+                    Veiculo comparacao = new Veiculo(); 
                     String strPlacaRotativo = JOptionPane.showInputDialog("Digite o numero da placa");
                     Veiculo veiculoRotativo = sisEstacionamento.buscarVeiculo(strPlacaRotativo);
                     if (veiculoRotativo == null) {
                         JOptionPane.showMessageDialog(null, "Veiculo não cadastrado!");
+                        break;
+                    }
+                    if(veiculoRotativo.getClass()!= comparacao.getClass()){
+                        JOptionPane.showMessageDialog(null, "Não é possivel acessar como usuário rotativo: Veículo cadastrado como mensalista!");
                         break;
                     }
                     try {
@@ -246,15 +253,23 @@ public class Main {
                     4-Setar atributos do acesso;
                     3-Colocar o acesso na referencia de acessos de veiculo;
                      */
-                              /*
+                     /*
                     1-O método buscar procura na lista de veículos a referência pela a placa,atribuindo como resultado
                     da busca o objeto procurado haja vista que o retorno do metódo é capaz de retornar um veículo;
                      */
+                    VeiculoMensalista veiculoMensalista = new VeiculoMensalista();
                     String strPlaca = JOptionPane.showInputDialog("Digite o numero da placa:");
                     Veiculo vm = sisEstacionamento.buscarVeiculo(strPlaca);
                     if (vm == null) {
                         JOptionPane.showMessageDialog(null, "Veiculo não cadastrado!");
                         break;
+                    }
+                    if (vm.getClass()!= veiculoMensalista.getClass()){
+
+                        JOptionPane.showMessageDialog(null, "O veículo da placa número: "+ strPlaca+" não tem o plano de mensalista");
+
+                       break;
+
                     }
                     /*
                     A instâcia "acesso" será utilizada para compor o acesso ao veículo;
