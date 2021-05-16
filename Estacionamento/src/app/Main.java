@@ -312,6 +312,7 @@ public class Main {
                     } catch (PeriodoInvalidoException erroDePeriodoInvalido) {
                         System.out.println(erroDePeriodoInvalido.getMessage());
                         JOptionPane.showMessageDialog(null, "Erro: Periodo Inválido.");
+                        break;
                     } catch (EstacionamentoFechadoException erroDeEstacionamentoFechado) {
                         System.out.println(erroDeEstacionamentoFechado.getMessage());
                         JOptionPane.showMessageDialog(null, "Estacionamento Fechado.");
