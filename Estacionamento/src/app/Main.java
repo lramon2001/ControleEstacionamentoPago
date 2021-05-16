@@ -59,11 +59,11 @@ public class Main {
                     = "Digite\n"
                     + "1-Cadastrar veículo rotativo;\n"
                     + "2-Cadastrar proprietário;\n"
-                    + "3-Cadastrar veiculo mensalista;\n"
+                    + "3-Cadastrar veículo mensalista;\n"
                     + "4-Registrar acesso de usuário rotativo;\n"
                     + "5-Registrar acesso de usuário mensalista;\n"
-                    + "6-Exibir veiculos cadastrados;\n"
-                    + "7-Exibir proprietarios;\n"
+                    + "6-Exibir veículos cadastrados;\n"
+                    + "7-Exibir proprietários;\n"
                     + "8-Exibir listas de acessos;\n"
                     + "9-Exibir faturamento.\n"
                     + "0-Sair";
@@ -103,42 +103,42 @@ public class Main {
                         if (sisEstacionamento.buscarVeiculo(strPlaca) == null) {
                         	sisEstacionamento.cadastrarVeiculo(veiculo);
                         } else {
-                            JOptionPane.showMessageDialog(null, "Veículo já cadastrado.");
+                            JOptionPane.showMessageDialog(null, "Veículo já cadastrado!");
                         }
                     } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
                         System.out.println(erroDadosVeiculosIncompleto.getMessage());
-                        JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
+                        JOptionPane.showMessageDialog(null, "Veículo com dados incompletos");
                     }
 
                     break;
                 case 2:
                     Proprietario p = new Proprietario();
                     try {
-                        String strNome = JOptionPane.showInputDialog("Digte o nome do proprietario:");
+                        String strNome = JOptionPane.showInputDialog("Digite o nome do proprietário:");
                         p.setNome(strNome);
 
-                        String strCnh = JOptionPane.showInputDialog("Digte o número da CNH:");
+                        String strCnh = JOptionPane.showInputDialog("Digite o número da CNH do proprietário:");
                         p.setCnh(strCnh);
 
-                        String strEndereco = JOptionPane.showInputDialog("Digte o endereço do proprietario:");
+                        String strEndereco = JOptionPane.showInputDialog("Digite o endereço do proprietário:");
                         p.setEndereco(strEndereco);
 
-                        String strNcelular = JOptionPane.showInputDialog("Digte o telefone celular:");
+                        String strNcelular = JOptionPane.showInputDialog("Digite o número de telefone celular do proprietário:");
                         p.setnCelular(strNcelular);
 
-                        String strNresidencial = JOptionPane.showInputDialog("Digte o telefone residencial:");
+                        String strNresidencial = JOptionPane.showInputDialog("Digite o numero do telefone residencial do proprietário:");
                         p.setnResidencial(strNresidencial);
                         System.out.println(strCnh);
 
                         if (sisEstacionamento.buscarProprietario(strCnh) == null) {
                         	sisEstacionamento.cadastrarProprietario(p);
                         } else {
-                            JOptionPane.showMessageDialog(null, "Proprietário já cadastrado.");
+                            JOptionPane.showMessageDialog(null, "Proprietário já cadastrado!");
                         }
 
                     } catch (DadosPessoaisIncompletosException erroDadosProprietarioIncompleto) {
                         System.out.println(erroDadosProprietarioIncompleto.getMessage());
-                        JOptionPane.showMessageDialog(null, "Proprietario com dados Pessoais incompletos");
+                        JOptionPane.showMessageDialog(null, "Proprietário com dados pessoais incompletos");
                     }
 
                     break;
@@ -162,16 +162,16 @@ public class Main {
                      */
                     Veiculo vm = new VeiculoMensalista();
 
-                    String strMarcaMensalista = JOptionPane.showInputDialog("Digte a marca do veículo:");
+                    String strMarcaMensalista = JOptionPane.showInputDialog("Digite a marca do veículo:");
                     vm.setMarca(strMarcaMensalista);
 
-                    String strModeloMensalista = JOptionPane.showInputDialog("Digte o modelo do veículo:");
+                    String strModeloMensalista = JOptionPane.showInputDialog("Digite o modelo do veículo:");
                     vm.setModelo(strModeloMensalista);
 
-                    String strPlacaMensalista = JOptionPane.showInputDialog("Digte a placa do veículo:");
+                    String strPlacaMensalista = JOptionPane.showInputDialog("Digite a placa do veículo:");
                     vm.setNumeroPlaca(strPlacaMensalista);
                     
-                    String strCnhMensalista = JOptionPane.showInputDialog("Digte o número da CNH do proprietário:");
+                    String strCnhMensalista = JOptionPane.showInputDialog("Digite o número da CNH do proprietário:");
 
                     Proprietario proprietario = new Proprietario();
 
@@ -185,12 +185,12 @@ public class Main {
                     if (sisEstacionamento.buscarVeiculo(strPlacaMensalista) == null) {
                         sisEstacionamento.cadastrarVeiculo(vm);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Veículo já cadastrado.");
+                        JOptionPane.showMessageDialog(null, "Veículo já cadastrado!");
                     }
 
                 } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
                     System.out.println(erroDadosVeiculosIncompleto.getMessage());
-                    JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
+                    JOptionPane.showMessageDialog(null, "Veículo com dados incompletos");
                 }
 
                 break;
@@ -207,7 +207,7 @@ public class Main {
                     String strPlacaRotativo = JOptionPane.showInputDialog("Digite a placa do veículo:");
                     Veiculo veiculoRotativo = sisEstacionamento.buscarVeiculo(strPlacaRotativo);
                     if (veiculoRotativo == null) {
-                        JOptionPane.showMessageDialog(null, "Veiculo não cadastrado!");
+                        JOptionPane.showMessageDialog(null, "Veículo não cadastrado!");
                         break;
                     }
                     if(veiculoRotativo.getClass()!= comparacao.getClass()){
@@ -215,7 +215,7 @@ public class Main {
                         break;
                     }
                     try {
-                        String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digte a data da entrada:\n(Use o formato DD/MM/AA)");
+                        String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digite a data da entrada:\n(Use o formato DD/MM/AA)");
                         int[] inputDataEntradaRotativo = GerenciamentoEstacionamento.lerData(strDataEntradaRotativo);
                         LocalDate dataEntradaRotativo = LocalDate.of(inputDataEntradaRotativo[2], inputDataEntradaRotativo[1], inputDataEntradaRotativo[0]);
 
@@ -261,7 +261,7 @@ public class Main {
                     String strPlaca = JOptionPane.showInputDialog("Digite a placa do veículo:");
                     Veiculo vm = sisEstacionamento.buscarVeiculo(strPlaca);
                     if (vm == null) {
-                        JOptionPane.showMessageDialog(null, "Veiculo não cadastrado!");
+                        JOptionPane.showMessageDialog(null, "Veículo não cadastrado!");
                         break;
                     }
                     if (vm.getClass()!= veiculoMensalista.getClass()){
@@ -311,7 +311,7 @@ public class Main {
                         acesso.setSaida(dataSaida, horaSaida);
                     } catch (PeriodoInvalidoException erroDePeriodoInvalido) {
                         System.out.println(erroDePeriodoInvalido.getMessage());
-                        JOptionPane.showMessageDialog(null, "Erro: Periodo Inválido.");
+                        JOptionPane.showMessageDialog(null, "Erro: Período Inválido.");
                         break;
                     } catch (EstacionamentoFechadoException erroDeEstacionamentoFechado) {
                         System.out.println(erroDeEstacionamentoFechado.getMessage());
