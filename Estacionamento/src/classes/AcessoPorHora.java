@@ -1,6 +1,6 @@
-package com.grupo10.estacionamento.classes;
+package classes;
 
-import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
+import exceptions.EstacionamentoFechadoException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -8,9 +8,9 @@ import java.time.LocalTime;
 
 /**
  * <p>
- * Classe <b>AcessoPorDiaria </b> </p>
+ * Classe <b>AcessoPorHora </b> </p>
  * <p>
- * Define a estrutura de um acesso de um usario rotativo por diaria na
+ * Define a estrutura de um acesso de um usario rotativo por hora na
  * Aplicação</p>
  * <p>
  * Herda atributo e métodos da classe abstrata Acesso</p>
@@ -20,23 +20,13 @@ import java.time.LocalTime;
  * @since may 2021
  * @version 1.0
  */
-public class AcessoPorDiaria extends Acesso {
+public class AcessoPorHora extends Acesso {
 
     /**
-     * Construtor default da classe  <b>AcessoPorDiaria</b> <br><br>
-     * <b> uso:</b> <br>
-     * AcessoPorDiaria acesso = new AcessoPorDiaria();
-     */
-    public AcessoPorDiaria() {
-
-    }
-
-    /**
-     *
      * <b>método</b> calculaValor<br>
      * <b>uso:</b> <br>
-     * acessoPorDiaria.calculaValor();<br>
-     * Este método calcula o custo de um acesso por diária.
+     * acessoPorHora.calculaValor();<br>
+     * Este método calcula o custo de um acesso por hora.
      *
      * @param duracao faz referência a duracao do acesso
      * @param tarifa faz referência a tarifa aplicada no calculo do custo
@@ -44,14 +34,24 @@ public class AcessoPorDiaria extends Acesso {
      */
     @Override
     public double calculaValor(Duration duracao, double tarifa) {
-        Acesso acesso = new AcessoPorMinuto();
-        double preco = 110;
-        Duration restante = duracao.minusHours(9);
-        preco += acesso.calculaValor(restante, 0.2);
-        return preco;
+        /*
+         * 1- instânciar um objeto da classe AcessoPorQuinze
+         * 2- colocar o valor na variável preço o retorno da calculaValor do objeto da classe AcessoPorQuinze
+         * 3- calcular um valor do desconto
+         * 4- retornar o preço com desconto 
+        */
+        Acesso acesso = new AcessoPorQuinze();
+        double preco = acesso.calculaValor(duracao, tarifa);
+
+        Duration umaHora = Duration.ofMinutes(60);
+        long nDescontos = (duracao.toMinutes()) / umaHora.toMinutes();
+
+        return preco - nDescontos;
+
     }
 
     /**
+     *
      * Setter do atributo <b>entrada</b><br>
      * <b>uso:</b><br>
      * acesso.setEntrada(LocalDate dia, LocalTime hora);
@@ -70,5 +70,4 @@ public class AcessoPorDiaria extends Acesso {
             this.entrada = entrada;
         }
     }
-
 }

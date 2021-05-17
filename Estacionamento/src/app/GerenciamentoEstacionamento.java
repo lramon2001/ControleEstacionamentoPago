@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.grupo10.estacionamento.app;
+package app;
 
-import com.grupo10.estacionamento.classes.Acesso;
-import com.grupo10.estacionamento.classes.AcessoPorDiaria;
-import com.grupo10.estacionamento.classes.AcessoPorHora;
-import com.grupo10.estacionamento.classes.AcessoPorMinuto;
-import com.grupo10.estacionamento.classes.AcessoPorPernoite;
-import com.grupo10.estacionamento.classes.AcessoPorQuinze;
-import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
-import com.grupo10.estacionamento.exceptions.PeriodoInvalidoException;
+import classes.Acesso;
+import classes.AcessoPorDiaria;
+import classes.AcessoPorHora;
+import classes.AcessoPorMinuto;
+import classes.AcessoPorPernoite;
+import classes.AcessoPorQuinze;
+import exceptions.EstacionamentoFechadoException;
+import exceptions.PeriodoInvalidoException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.LocalTime;

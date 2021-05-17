@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.grupo10.estacionamento.classes;
+package classes;
 
-import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
+import exceptions.DadosPessoaisIncompletosException;
 
 /**
  * <p>

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.grupo10.estacionamento.classes;
+package classes;
 
 /**
  *
  */
-import com.grupo10.estacionamento.interfaces.CadastroInterface;
+import interfaces.CadastroInterface;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -181,12 +181,11 @@ public class CadastroVeiculos implements CadastroInterface<Veiculo> {
      * Este método exibe a Lista de acessos.
      */
     public void listarAcessos() {
-
-       String lista = "Acessos\n\n";
+    	String lista = "Acessos\n\n";
         int i = 0;
         for (Veiculo v : veiculos) {
             if (v.mostraTodosAcessosDoVeiculo().length() > 0) {
-                lista += "Acessos do veículo nº : " + (i + 1) +" do cadastro de veículos. "+"\nPlaca do veículo nº "+(i+1) +": "+ v.getNumeroPlaca() + "\nModelo do veículo nº "+(i+1) +": "+ v.getModelo() + "\n" + v.mostraTodosAcessosDoVeiculo();
+                lista += "Acessos do veículo nº " + (i + 1) +" do cadastro de veículos. "+"\nPlaca do veículo nº "+(i+1) +": "+ v.getNumeroPlaca() + "\nModelo do veículo nº "+(i+1) +": "+ v.getModelo() + "\n" + v.mostraTodosAcessosDoVeiculo();
                 i++;
             }
 

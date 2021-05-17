@@ -1,6 +1,6 @@
-package com.grupo10.estacionamento.classes;
+package classes;
 
-import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
+import exceptions.EstacionamentoFechadoException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -8,9 +8,9 @@ import java.time.LocalTime;
 
 /**
  * <p>
- * Classe <b>AcessoPorPernoite </b> </p>
+ * Classe <b>AcessoPorDiaria </b> </p>
  * <p>
- * Define a estrutura de um acesso de um usario rotativo por pernoite na
+ * Define a estrutura de um acesso de um usario rotativo por diaria na
  * Aplicação</p>
  * <p>
  * Herda atributo e métodos da classe abstrata Acesso</p>
@@ -20,14 +20,14 @@ import java.time.LocalTime;
  * @since may 2021
  * @version 1.0
  */
-public class AcessoPorPernoite extends Acesso {
+public class AcessoPorDiaria extends Acesso {
 
     /**
-     * Construtor default da classe  <b>AcessoPorPernoite</b> <br><br>
+     * Construtor default da classe  <b>AcessoPorDiaria</b> <br><br>
      * <b> uso:</b> <br>
-     * AcessoPorPernoite acesso = new AcessoPorPernoite();
+     * AcessoPorDiaria acesso = new AcessoPorDiaria();
      */
-    public AcessoPorPernoite() {
+    public AcessoPorDiaria() {
 
     }
 
@@ -35,8 +35,8 @@ public class AcessoPorPernoite extends Acesso {
      *
      * <b>método</b> calculaValor<br>
      * <b>uso:</b> <br>
-     * acessoPorPernoite.calculaValor();<br>
-     * Este método calcula o custo de um acesso por pernoite.
+     * acessoPorDiaria.calculaValor();<br>
+     * Este método calcula o custo de um acesso por diária.
      *
      * @param duracao faz referência a duracao do acesso
      * @param tarifa faz referência a tarifa aplicada no calculo do custo
@@ -44,32 +44,22 @@ public class AcessoPorPernoite extends Acesso {
      */
     @Override
     public double calculaValor(Duration duracao, double tarifa) {
-        double preco = 30;
-        Duration dezenoveHoras = Duration.ofHours(19);
-        int menorQueDezenoveHoras = duracao.compareTo(dezenoveHoras);
-        if (menorQueDezenoveHoras == -1 || menorQueDezenoveHoras == 0) {
-            Duration restante = duracao.minus(Duration.ofHours(10));
-            Acesso acesso = new AcessoPorHora();
-            preco += acesso.calculaValor(restante, 0.5);
-        } else {
-            Duration restante = duracao.minus(Duration.ofHours(10));
-            Acesso acesso = new AcessoPorDiaria();
-            preco += acesso.calculaValor(restante, 0.2);
-        }
-
+        Acesso acesso = new AcessoPorMinuto();
+        double preco = 110;
+        Duration restante = duracao.minusHours(9);
+        preco += acesso.calculaValor(restante, 0.2);
         return preco;
     }
 
     /**
-     *
      * Setter do atributo <b>entrada</b><br>
      * <b>uso:</b><br>
      * acesso.setEntrada(LocalDate dia, LocalTime hora);
      *
      * @param dia faz referência a data da entrada do acesso.
      * @param hora faz referência a hora da entrada do acesso.
-     * @throws EstacionamentoFechadoException Não é possivel atribuir o mesmo
-     * dia e hora da entrada a saida.
+     * @throws EstacionamentoFechadoException Não é possivel acessar o
+     * estacionamento como rotativo entre 20:00 hrs e 6:00 hrs.
      */
     @Override
     public void setEntrada(LocalDate dia, LocalTime hora) throws EstacionamentoFechadoException {
@@ -80,4 +70,5 @@ public class AcessoPorPernoite extends Acesso {
             this.entrada = entrada;
         }
     }
+
 }

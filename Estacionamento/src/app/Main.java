@@ -1,17 +1,15 @@
-package com.grupo10.estacionamento.app;
+package app;
 
-import com.grupo10.estacionamento.classes.Acesso;
-import com.grupo10.estacionamento.classes.AcessoMensalista;
-import com.grupo10.estacionamento.classes.CadastroAcessos;
-import com.grupo10.estacionamento.classes.CadastroProprietarios;
-import com.grupo10.estacionamento.classes.CadastroVeiculos;
-import com.grupo10.estacionamento.classes.Proprietario;
-import com.grupo10.estacionamento.classes.Veiculo;
-import com.grupo10.estacionamento.classes.VeiculoMensalista;
-import com.grupo10.estacionamento.exceptions.DadosPessoaisIncompletosException;
-import com.grupo10.estacionamento.exceptions.DadosVeiculosIncompletosException;
-import com.grupo10.estacionamento.exceptions.EstacionamentoFechadoException;
-import com.grupo10.estacionamento.exceptions.PeriodoInvalidoException;
+import classes.Acesso;
+import classes.AcessoMensalista;
+import classes.SistemaEstacionamento;
+import classes.Proprietario;
+import classes.Veiculo;
+import classes.VeiculoMensalista;
+import exceptions.DadosPessoaisIncompletosException;
+import exceptions.DadosVeiculosIncompletosException;
+import exceptions.EstacionamentoFechadoException;
+import exceptions.PeriodoInvalidoException;
 
 import java.text.spi.NumberFormatProvider;
 import java.time.Duration;
@@ -43,9 +41,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    static CadastroVeiculos veiculos = new CadastroVeiculos();
-    static CadastroProprietarios proprietarios = new CadastroProprietarios();
-    static CadastroAcessos acessos = new CadastroAcessos();
+    static SistemaEstacionamento sisEstacionamento = new SistemaEstacionamento();
 
     public static void main(String[] args) throws Exception {
         menu();
@@ -63,11 +59,11 @@ public class Main {
                     = "Digite\n"
                     + "1-Cadastrar veículo rotativo;\n"
                     + "2-Cadastrar proprietário;\n"
-                    + "3-Cadastrar veiculo mensalista;\n"
+                    + "3-Cadastrar veículo mensalista;\n"
                     + "4-Registrar acesso de usuário rotativo;\n"
                     + "5-Registrar acesso de usuário mensalista;\n"
-                    + "6-Exibir veiculos cadastrados;\n"
-                    + "7-Exibir proprietarios;\n"
+                    + "6-Exibir veículos cadastrados;\n"
+                    + "7-Exibir proprietários;\n"
                     + "8-Exibir listas de acessos;\n"
                     + "9-Exibir faturamento.\n"
                     + "0-Sair";
@@ -104,45 +100,45 @@ public class Main {
                         String strPlaca = JOptionPane.showInputDialog("Digite a placa do veículo:");
                         veiculo.setNumeroPlaca(strPlaca);
 
-                        if (veiculos.buscar(strPlaca) == null) {
-                            veiculos.cadastrar(veiculo);
+                        if (sisEstacionamento.buscarVeiculo(strPlaca) == null) {
+                        	sisEstacionamento.cadastrarVeiculo(veiculo);
                         } else {
-                            JOptionPane.showMessageDialog(null, "Veículo já cadastrado.");
+                            JOptionPane.showMessageDialog(null, "Veículo já cadastrado!");
                         }
                     } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
                         System.out.println(erroDadosVeiculosIncompleto.getMessage());
-                        JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
+                        JOptionPane.showMessageDialog(null, "Veículo com dados incompletos");
                     }
 
                     break;
                 case 2:
                     Proprietario p = new Proprietario();
                     try {
-                        String strNome = JOptionPane.showInputDialog("Digte o nome do proprietario:");
+                        String strNome = JOptionPane.showInputDialog("Digite o nome do proprietário:");
                         p.setNome(strNome);
 
-                        String strCnh = JOptionPane.showInputDialog("Digte o número da CNH:");
+                        String strCnh = JOptionPane.showInputDialog("Digite o número da CNH do proprietário:");
                         p.setCnh(strCnh);
 
-                        String strEndereco = JOptionPane.showInputDialog("Digte o endereço do proprietario:");
+                        String strEndereco = JOptionPane.showInputDialog("Digite o endereço do proprietário:");
                         p.setEndereco(strEndereco);
 
-                        String strNcelular = JOptionPane.showInputDialog("Digte o telefone celular:");
+                        String strNcelular = JOptionPane.showInputDialog("Digite o número de telefone celular do proprietário:");
                         p.setnCelular(strNcelular);
 
-                        String strNresidencial = JOptionPane.showInputDialog("Digte o telefone residencial:");
+                        String strNresidencial = JOptionPane.showInputDialog("Digite o numero do telefone residencial do proprietário:");
                         p.setnResidencial(strNresidencial);
                         System.out.println(strCnh);
 
-                        if (proprietarios.buscar(strCnh) == null) {
-                            proprietarios.cadastrar(p);
+                        if (sisEstacionamento.buscarProprietario(strCnh) == null) {
+                        	sisEstacionamento.cadastrarProprietario(p);
                         } else {
-                            JOptionPane.showMessageDialog(null, "Proprietário já cadastrado.");
+                            JOptionPane.showMessageDialog(null, "Proprietário já cadastrado!");
                         }
 
                     } catch (DadosPessoaisIncompletosException erroDadosProprietarioIncompleto) {
                         System.out.println(erroDadosProprietarioIncompleto.getMessage());
-                        JOptionPane.showMessageDialog(null, "Proprietario com dados Pessoais incompletos");
+                        JOptionPane.showMessageDialog(null, "Proprietário com dados pessoais incompletos");
                     }
 
                     break;
@@ -166,35 +162,35 @@ public class Main {
                      */
                     Veiculo vm = new VeiculoMensalista();
 
-                    String strMarcaMensalista = JOptionPane.showInputDialog("Digte a marca do veículo:");
+                    String strMarcaMensalista = JOptionPane.showInputDialog("Digite a marca do veículo:");
                     vm.setMarca(strMarcaMensalista);
 
-                    String strModeloMensalista = JOptionPane.showInputDialog("Digte o modelo do veículo:");
+                    String strModeloMensalista = JOptionPane.showInputDialog("Digite o modelo do veículo:");
                     vm.setModelo(strModeloMensalista);
 
-                    String strPlacaMensalista = JOptionPane.showInputDialog("Digte a placa do veículo:");
+                    String strPlacaMensalista = JOptionPane.showInputDialog("Digite a placa do veículo:");
                     vm.setNumeroPlaca(strPlacaMensalista);
-
-                    String strCnhMensalista = JOptionPane.showInputDialog("Digte o número da CNH do proprietário:");
+                    
+                    String strCnhMensalista = JOptionPane.showInputDialog("Digite o número da CNH do proprietário:");
 
                     Proprietario proprietario = new Proprietario();
 
-                    proprietario = proprietarios.buscar(strCnhMensalista);
+                    proprietario = sisEstacionamento.buscarProprietario(strCnhMensalista);
 
                     if (proprietario == null) {
                         JOptionPane.showMessageDialog(null, "Proprietário não cadastrado!");
                         break;
                     }
 
-                    if (veiculos.buscar(strPlacaMensalista) == null) {
-                        veiculos.cadastrar(vm);
+                    if (sisEstacionamento.buscarVeiculo(strPlacaMensalista) == null) {
+                        sisEstacionamento.cadastrarVeiculo(vm);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Veículo já cadastrado.");
+                        JOptionPane.showMessageDialog(null, "Veículo já cadastrado!");
                     }
 
                 } catch (DadosVeiculosIncompletosException erroDadosVeiculosIncompleto) {
                     System.out.println(erroDadosVeiculosIncompleto.getMessage());
-                    JOptionPane.showMessageDialog(null, "Veiculo com dados incompletos");
+                    JOptionPane.showMessageDialog(null, "Veículo com dados incompletos");
                 }
 
                 break;
@@ -209,9 +205,9 @@ public class Main {
                      */
                     Veiculo comparacao = new Veiculo(); 
                     String strPlacaRotativo = JOptionPane.showInputDialog("Digite a placa do veículo:");
-                    Veiculo veiculoRotativo = veiculos.buscar(strPlacaRotativo);
+                    Veiculo veiculoRotativo = sisEstacionamento.buscarVeiculo(strPlacaRotativo);
                     if (veiculoRotativo == null) {
-                        JOptionPane.showMessageDialog(null, "Veiculo não cadastrado!");
+                        JOptionPane.showMessageDialog(null, "Veículo não cadastrado!");
                         break;
                     }
                     if(veiculoRotativo.getClass()!= comparacao.getClass()){
@@ -219,7 +215,7 @@ public class Main {
                         break;
                     }
                     try {
-                        String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digte a data da entrada:\n(Use o formato DD/MM/AA)");
+                        String strDataEntradaRotativo = JOptionPane.showInputDialog(null, "Digite a data da entrada:\n(Use o formato DD/MM/AA)");
                         int[] inputDataEntradaRotativo = GerenciamentoEstacionamento.lerData(strDataEntradaRotativo);
                         LocalDate dataEntradaRotativo = LocalDate.of(inputDataEntradaRotativo[2], inputDataEntradaRotativo[1], inputDataEntradaRotativo[0]);
 
@@ -239,7 +235,7 @@ public class Main {
                         LocalDateTime saidaRotativo = LocalDateTime.of(dataSaidaRotativo, horaSaidaRotativo);
 
                         Acesso acessoRotativo = GerenciamentoEstacionamento.classificaAcesso(entradaRotativo, saidaRotativo);
-                        acessos.cadastrar(acessoRotativo);
+                        sisEstacionamento.cadastrarAcesso(acessoRotativo);
                         veiculoRotativo.setAcesso(acessoRotativo);
                     } catch (NullPointerException nullPointerException) {
                         JOptionPane.showMessageDialog(null, "ERROR!.");
@@ -263,17 +259,17 @@ public class Main {
                      */
                     VeiculoMensalista veiculoMensalista = new VeiculoMensalista();
                     String strPlaca = JOptionPane.showInputDialog("Digite a placa do veículo:");
-                    Veiculo vm = veiculos.buscar(strPlaca);
+                    Veiculo vm = sisEstacionamento.buscarVeiculo(strPlaca);
                     if (vm == null) {
-                        JOptionPane.showMessageDialog(null, "Veiculo não cadastrado!");
+                        JOptionPane.showMessageDialog(null, "Veículo não cadastrado!");
                         break;
                     }
                     if (vm.getClass()!= veiculoMensalista.getClass()){
-                       
+
                         JOptionPane.showMessageDialog(null, "O veículo da placa número: "+ strPlaca+" não tem o plano de mensalista");
-                             
+
                        break;
-                                             
+
                     }
                     /*
                     A instâcia "acesso" será utilizada para compor o acesso ao veículo;
@@ -315,7 +311,8 @@ public class Main {
                         acesso.setSaida(dataSaida, horaSaida);
                     } catch (PeriodoInvalidoException erroDePeriodoInvalido) {
                         System.out.println(erroDePeriodoInvalido.getMessage());
-                        JOptionPane.showMessageDialog(null, "Erro: Periodo Inválido.");
+                        JOptionPane.showMessageDialog(null, "Erro: Período Inválido.");
+                        break;
                     } catch (EstacionamentoFechadoException erroDeEstacionamentoFechado) {
                         System.out.println(erroDeEstacionamentoFechado.getMessage());
                         JOptionPane.showMessageDialog(null, "Estacionamento Fechado.");
@@ -334,7 +331,7 @@ public class Main {
                     para calcular a duração e setar no atributo duracao do objeto acesso
                      */
 
-                        /*
+                    /*
                     O calculaPeriodo é basciamente um setter especial. Ele utiliza os atributos entrada e saída para calcular
                     
                      */
@@ -342,7 +339,7 @@ public class Main {
 
                     vm.setAcesso(acesso);
 
-                    acessos.cadastrar(acesso);
+                    sisEstacionamento.cadastrarAcesso(acesso);
 
                     break;
 
@@ -351,7 +348,7 @@ public class Main {
                          que é uma lista guarda objetos da classe Veiculo
                          por meio desta referênica;                        
                      */
-                    veiculos.listar();
+                	sisEstacionamento.listarVeiculos();
                     break;
                 case 7:
 
@@ -359,10 +356,10 @@ public class Main {
                          que é uma lista guarda objetos da classe Proprietario
                          por meio desta referênica;                        
                      */
-                    proprietarios.listar();
+                	sisEstacionamento.listarProprietarios();
                     break;
                 case 8:
-                    veiculos.listarAcessos();
+                	sisEstacionamento.listarAcessos();
                     break;
                 case 9:
                     exibeFaturamento();
@@ -384,22 +381,23 @@ public class Main {
     public static void exibeFaturamento() {
         String listaFaturamento = "Faturamento:\n\n";
         double total = 0;
+
         Veiculo vmensalista = new VeiculoMensalista();
         listaFaturamento+="Receita de mensalidades: \n\n";
-        for (int i = 0; i < veiculos.getVeiculos().size(); i++) {
-            if(veiculos.getVeiculos().get(i).getClass()== vmensalista.getClass()){
-            listaFaturamento+="Mensalidade: "+(i+1)+"\nPlaca do veículo mensalista : "+veiculos.getVeiculos().get(i).getNumeroPlaca()
+        for (int i = 0; i < sisEstacionamento.getVeiculos().size(); i++) {
+            if(sisEstacionamento.getVeiculos().get(i).getClass()== vmensalista.getClass()){
+            	listaFaturamento+="Mensalidade: "+(i+1)+"\nPlaca do veículo mensalista : "+sisEstacionamento.getVeiculos().get(i).getNumeroPlaca()
                     +"\nValor da mensalidade: 500 R$\n\n";
-            total += 500;
+            	total += 500;
             }
         }
         listaFaturamento += "Receitas de acessos rotativos: \n";
-        for (int i = 0; i < acessos.getAcessos().size(); i++) {
-            if (acessos.getAcessos().get(i).getValor() != 0) {
-                listaFaturamento += "Tempo de permanência: " + acessos.getAcessos().get(i).getDuracao().toHoursPart() + "h "
-                        + acessos.getAcessos().get(i).getDuracao().toMinutesPart() + "min"
-                        + "\n Valor: " + acessos.getAcessos().get(i).getValor() + " R$";
-                total += acessos.getAcessos().get(i).getValor();
+        for (int i = 0; i < sisEstacionamento.getAcessos().size(); i++) {
+            if (sisEstacionamento.getAcessos().get(i).getValor() != 0) {
+                listaFaturamento += "Tempo de permanência: " + sisEstacionamento.getAcessos().get(i).getDuracao().toHoursPart() + "h "
+                        + sisEstacionamento.getAcessos().get(i).getDuracao().toMinutesPart() + "min"
+                        + "\n Valor: " + sisEstacionamento.getAcessos().get(i).getValor() + " R$";
+                total += sisEstacionamento.getAcessos().get(i).getValor();
             }
 
         }
@@ -407,3 +405,4 @@ public class Main {
         JOptionPane.showMessageDialog(null, listaFaturamento);
     }
 }
+
