@@ -9,12 +9,21 @@
 [![Série](https://img.shields.io/badge/Grupo10-Lucas-blue)](https://github.com/lramon2001)
 [![Série](https://img.shields.io/badge/Grupo10-Paulo-green)](https://github.com/PhRezende-eng)
 [![Série](https://img.shields.io/badge/Grupo10-Adrian-blue)](https://github.com/SwampTG)
-[![Série](https://img.shields.io/badge/Grupo10-Diogenes-green)](https://github.com/diogjunior100)
 [![Série](https://img.shields.io/badge/Grupo10-Arthur-blue)](https://github.com/CrimsonCrown)
 
 :rocket: Project with OO approaches and Java applications. 
 
 > :rocket: **Projeto com abordagens de OO e aplicações em Java.**
+
+## Built with / Feito com
+- Java 11;
+- JDK 11;
+- Apache Netbeans;
+- Intellij IDEA;
+- Eclipse;
+- Visual Studio Code;
+- UML 2.5;
+- Draw i.o.
 
 ## O.O approaches on the project / Abordagens de OO no projeto
 - Class concept / Conceito de classe;
