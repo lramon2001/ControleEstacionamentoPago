@@ -1,0 +1,24 @@
+Entrega 1 - Diagrama UML
+------------------------
+
+- As classes, seus atributos e métodos são suficientes para atender as
+  funcionalidades e o contexto descrito no enunciado do trabalho? (-10 pontos
+  para cada classe faltante, limitados a -60 pontos)
+    Numero de classes faltantes: 
+
+- As associações entre classes, incluindo as multiplicidades dessas associações,
+  estão corretas sintática e semanticamente? (-5 pontos por erro de sentido da
+  associação limitados a -20 pontos, -5 pontos por erro de representação do tipo
+  da associaçao limitados a -15 pontos, -5 pontos por erro de multiplicidade
+  limitados a -10 pontos). 
+    Numero de erros de sentido de associação: 3 (-15 pontos)
+    Numero de erros de tipo de associação: 9 (-15 pontos) Obs.: uso incorreto e
+inconsistente de agregação e composição (agregação e composição não foram
+discutidos em sala de aula). 
+    Numero de erros de multuiplicidade: 
+
+- As classes implementadas refletem o Diagrama de Classes UML apresentado? (-10
+  pontos por erro inconsistencia identificada, limitados a -30 pontos). 
+    Numero de inconsistências identificadas: 
+
+TOTAL DE PONTOS OBTIDOS: 70 pontos. 
