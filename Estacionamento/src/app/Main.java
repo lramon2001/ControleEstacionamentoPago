@@ -15,7 +15,6 @@ import java.text.spi.NumberFormatProvider;
 import java.time.Duration;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -43,7 +42,7 @@ public class Main {
      */
     static SistemaEstacionamento sisEstacionamento = new SistemaEstacionamento();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         menu();
     }
     private static void menuCadastrarRotativo() {
@@ -139,9 +138,7 @@ public class Main {
         
         String strCnhMensalista = JOptionPane.showInputDialog("Digite o número da CNH do proprietário:");
 
-        Proprietario proprietario = new Proprietario();
-
-        proprietario = sisEstacionamento.buscarProprietario(strCnhMensalista);
+        Proprietario proprietario = sisEstacionamento.buscarProprietario(strCnhMensalista);
 
         if (proprietario == null) {
             JOptionPane.showMessageDialog(null, "Proprietário não cadastrado!");
@@ -269,7 +266,7 @@ public class Main {
             LocalDate dataSaida = LocalDate.of(inputDataSaida[2], inputDataSaida[1], inputDataSaida[0]);
 
             String strHoraSaida = JOptionPane.showInputDialog("Digite a hora da saída:\n(Use o formato HH:MM)");
-            int inputHoraSaida[] = GerenciamentoEstacionamento.lerHora(strHoraSaida);
+            int[] inputHoraSaida = GerenciamentoEstacionamento.lerHora(strHoraSaida);
             LocalTime horaSaida = LocalTime.of(inputHoraSaida[0], inputHoraSaida[1]);
 
             acesso.setEntrada(dataEntrada, horaEntrada);
@@ -332,11 +329,11 @@ public class Main {
              */
             String strx = JOptionPane.showInputDialog(null, menu);
             x = Integer.parseInt(strx);
-            /*
+/*            *//*
               A string indisponivel será utilizada temporariamente para reportar 
               indisponibilidade de alguma funcionalidade;
-             */
-            String indisponivel = "Funcionalidade não implementada";
+             *//*
+            String indisponivel = "Funcionalidade não implementada";*/
             switch (x) {
                 case 1:
                 	menuCadastrarRotativo();
@@ -383,36 +380,39 @@ public class Main {
                             + "\nLucas- Paulo- Adrian- Arthur");
                     x = 0;
                     break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opção Inválida! Tente novamente ou digite 0 para sair.");
             }
         } while (x != 0);
 
     }
 
     public static void exibeFaturamento() {
-        String listaFaturamento = "Faturamento:\n\n";
+        StringBuilder listaFaturamento = new StringBuilder("Faturamento:\n\n");
         double total = 0;
 
         Veiculo vmensalista = new VeiculoMensalista();
-        listaFaturamento+="Receita de mensalidades: \n\n";
+        listaFaturamento.append("Receita de mensalidades: \n\n");
         for (int i = 0; i < sisEstacionamento.getVeiculos().size(); i++) {
             if(sisEstacionamento.getVeiculos().get(i).getClass()== vmensalista.getClass()){
-            	listaFaturamento+="Mensalidade: "+(i+1)+"\nPlaca do veículo mensalista : "+sisEstacionamento.getVeiculos().get(i).getNumeroPlaca()
-                    +"\nValor da mensalidade: 500 R$\n\n";
+            	listaFaturamento.append("Mensalidade: ").append(i + 1)
+                        .append("\nPlaca do veículo mensalista : ").append(sisEstacionamento.getVeiculos().get(i).getNumeroPlaca())
+                        .append("\nValor da mensalidade: 500 R$\n\n");
             	total += 500;
             }
         }
-        listaFaturamento += "Receitas de acessos rotativos: \n";
+        listaFaturamento.append("Receitas de acessos rotativos: \n");
         for (int i = 0; i < sisEstacionamento.getAcessos().size(); i++) {
             if (sisEstacionamento.getAcessos().get(i).getValor() != 0) {
-                listaFaturamento += "Tempo de permanência: " + sisEstacionamento.getAcessos().get(i).getDuracao().toHoursPart() + "h "
-                        + sisEstacionamento.getAcessos().get(i).getDuracao().toMinutesPart() + "min"
-                        + "\n Valor: " + sisEstacionamento.getAcessos().get(i).getValor() + " R$";
+                listaFaturamento.append("Tempo de permanência: ").append(sisEstacionamento.getAcessos().get(i).getDuracao().toHoursPart()).append("h ")
+                        .append(sisEstacionamento.getAcessos().get(i).getDuracao().toMinutesPart()).append("min")
+                        .append("\n Valor: ").append(sisEstacionamento.getAcessos().get(i).getValor()).append(" R$");
                 total += sisEstacionamento.getAcessos().get(i).getValor();
             }
 
         }
-        listaFaturamento += "\n\nFaturamento Total: " + total + "R$";
-        JOptionPane.showMessageDialog(null, listaFaturamento);
+        listaFaturamento.append("\n\nFaturamento Total: ").append(total).append(" R$");
+        JOptionPane.showMessageDialog(null, listaFaturamento.toString());
     }
 }
 

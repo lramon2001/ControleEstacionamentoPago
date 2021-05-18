@@ -188,7 +188,7 @@ public class Veiculo {
         int i =0;
         lista.append("\nNúmero de acessos realizados pelo veículo: "+(acessos.size())+"\n");
         for (Acesso acesso : acessos) {
-            if (acessos.isEmpty() == false) {
+            if (!acessos.isEmpty()) {
                 LocalDateTime entrada = acesso.getEntrada();
                 LocalDateTime saida = acesso.getSaida();
                 lista.append("Acesso nº "+(i+1)).append("\nEntrada                          |    Saída    \n")
