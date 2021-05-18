@@ -9,7 +9,7 @@
 [![Série](https://img.shields.io/badge/Grupo10-Lucas-blue)](https://github.com/lramon2001)
 [![Série](https://img.shields.io/badge/Grupo10-Paulo-green)](https://github.com/PhRezende-eng)
 [![Série](https://img.shields.io/badge/Grupo10-Adrian-blue)](https://github.com/SwampTG)
-[![Série](https://img.shields.io/badge/Grupo10-Arthur-blue)](https://github.com/CrimsonCrown)
+[![Série](https://img.shields.io/badge/Grupo10-Arthur-green)](https://github.com/CrimsonCrown)
 
 :rocket: Project with OO approaches and Java applications. 
 
@@ -36,12 +36,12 @@
 - Concept of overloading methods / Conceito de sobrecarga de métodos.
 
 ## Requirements / Requerimentos
-- [ ] The Class Diagram describes the entire application / O Diagrama de classes descreva toda a aplicação ;
-- [ ] The class diagram reflects the structure of the project / O diagrama de classes reflete a estrutura do projeto ;
-- [ ] Vehicle registers, owners and access records work properly / Cadastros de veículos, proprietários e registro de acessos funcionam adequadamente ;
-- [ ] Exceptions are thrown properly / As exceções são lançadas adequadamente;
-- [ ] The software allows linking between objects that have an association / O software permite realizar vinculação entre objetos que possuem associação;
-- [ ] All methods of calculating the value of parking are correctly implemented /Todas as modalidades de cálculo de valor do estacionamento estão implementadas corretamente .
+- [x] The Class Diagram describes the entire application / O Diagrama de classes descreva toda a aplicação ;
+- [x] The class diagram reflects the structure of the project / O diagrama de classes reflete a estrutura do projeto ;
+- [x] Vehicle registers, owners and access records work properly / Cadastros de veículos, proprietários e registro de acessos funcionam adequadamente ;
+- [x] Exceptions are thrown properly / As exceções são lançadas adequadamente;
+- [x] The software allows linking between objects that have an association / O software permite realizar vinculação entre objetos que possuem associação;
+- [x] All methods of calculating the value of parking are correctly implemented /Todas as modalidades de cálculo de valor do estacionamento estão implementadas corretamente .
 
 ## UML Class Diagram v2.5 / Diagrama de Classe UML v2.5
 <img src="https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/blob/main/UMLDiagram.png" width="1200"/>
