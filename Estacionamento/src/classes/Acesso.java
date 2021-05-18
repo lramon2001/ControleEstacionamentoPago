@@ -98,7 +98,7 @@ public abstract class Acesso {
     public void setSaida(LocalDate dia, LocalTime hora) throws PeriodoInvalidoException {
 
         LocalDateTime saida = LocalDateTime.of(dia, hora);
-        if (saida.equals(this.getEntrada())) {
+        if (saida.isEqual(this.getEntrada()) || saida.isBefore(this.getEntrada())) {
             throw new PeriodoInvalidoException();
         } else {
             this.saida = saida;
