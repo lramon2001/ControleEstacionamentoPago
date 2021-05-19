@@ -43,7 +43,7 @@ R=Não é possivel, o que é muito bom. Desse modo,tudo ok.
 5.1-Está lançando todas as exceções possíveis?
 R= Sim,tudo ok.
 5.2-Se a exceção é lançada, ele deixa de computar o acesso?
-R= Não foi possivel realizar o teste. O programa quebrou
+R= Sim,tudo ok.
 5.3-É possível realizar um acesso com um veículo não cadastrado? 
 R=Não é possivel, o que é muito bom. Desse modo,tudo ok.
 5.4-É possivel um veículo rotatvio acessar como mensalista?
