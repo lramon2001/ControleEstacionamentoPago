@@ -66,5 +66,9 @@ MIT License © [Grupo10](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FG
 ## Commits History / Histórico de commits
 - See [Commit History](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/pulse) for contributors
 
-> **Consulte [Histórico de commits](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/pulse) por colaborador.**
-> 
+> **Consulte [Histórico de commits](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/pulse/monthly) por colaborador.**
+
+## Testing Protocol / Protocolo de testes
+- See [Testing Protocol](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/blob/main/Protocolo%20de%20testes%20do%20projeto%20do%20estacionamento.txt)
+
+> **Consulte o [Protocolo de Testes](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/blob/main/Protocolo%20de%20testes%20do%20projeto%20do%20estacionamento.txt) utilizado.**
