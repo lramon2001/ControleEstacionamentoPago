@@ -44,7 +44,7 @@
 - [x] All methods of calculating the value of parking are correctly implemented /Todas as modalidades de cálculo de valor do estacionamento estão implementadas corretamente .
 
 ## UML Class Diagram v2.5 / Diagrama de Classe UML v2.5
-<img src="https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/blob/main/UMLGrupo10.png" width="1200"/>
+<img src="https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/blob/main/UMLProjeto_18_05.png" width="1200"/>
 
 ## Project Kanban / Kanban do Projeto
 - to see what we are implementing at the moment just click on [This link](https://trello.com/b/TipC8qJd/controle-de-estacionamento) to see our Kanban
