@@ -1,0 +1,56 @@
+PROTOCOLO DE TESTES
+0- O programa compila?                                                                      
+R=Sim.                                                                                      6-Sistema Estacionamento
+                                                                                            6.0-É possivel cadastrar duas vezes um veículo com a mesma placa?
+1-Cadastro de veículo rotativo.                                                             R= Não, o que é muito bom. Desse modo, tudo ok.
+1.0-Cadastra um veículo rotativo?                                                           6.1-É possivel cadastrar duas vezes um proprietário com a mesma CNH?
+R=Sim,tudo ok.                                                                              R= Não, o que é muito bom.
+1.1-Está lançando todas as exceções possíveis?                                                
+R=Sim,tudo ok.
+1.2-Se a exceção é lançada, ele deixa de cadastrar?
+R=Sim,tudo ok.
+
+2-Cadastro de proprietário.
+2.0-Cadastra um proprietário?
+R=Sim, tudo ok.
+2.1-Está lançando todas as exceções possíveis?
+R=Sim, tudo ok.
+2.2-Se a exceção é lançada, ele deixa de cadastrar?
+R=Sim, tudo ok.
+
+3-Cadastro de veículo mensalista.
+3.0-Cadastra um veículo mensalista?
+3.1- Está lançando todas as exceções possíveis?
+R=Sim, tudo ok.
+3.2- Se a exceção é lançada, ele deixa de cadastrar?
+R=Sim, tudo ok.
+3.3- É possivel cadastrar sem um proprietário?
+R= Não é possivel, o que é muito bom. Desse modo,tudo ok.
+
+4-Acesso de veículo rotativo.
+4.0-Registra o acesso de um veículo rotativo?
+4.1-Está lançando todas as exceções possíveis?
+R=Sim, tudo ok.
+4.2-Se a exceção é lançada, ele deixa de computar o acesso?
+R=Sim, tudo ok.
+4.3-É possível realizar um acesso com um veículo não cadastrado? 
+R=Não é possivel, o que é muito bom. Desse modo,tudo ok.
+4.4-É possivel um veículo mensalista acessar como rotativo?
+R=Não é possivel, o que é muito bom. Desse modo,tudo ok.
+
+5-Acesso de veículo Rotativo.
+5.0-Registra o acesso de um veículo mensalista?
+5.1-Está lançando todas as exceções possíveis?
+R= Sim,tudo ok.
+5.2-Se a exceção é lançada, ele deixa de computar o acesso?
+R= Sim,tudo ok.
+5.3-É possível realizar um acesso com um veículo não cadastrado? 
+R=Não é possivel, o que é muito bom. Desse modo,tudo ok.
+5.4-É possivel um veículo rotatvio acessar como mensalista?
+R=Não é possivel, o que é muito bom. Desse modo,tudo ok.
+
+
+
+
+
+
