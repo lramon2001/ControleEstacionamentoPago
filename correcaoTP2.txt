@@ -1,0 +1,22 @@
+Entrega 2 - Cadastros
+---------------------
+
+OBS.: Trabalho muito bem elaborado, parabens ao grupo! 
+
+
+- Os cadastros de veiculos, clientes e acessos estão funcionando adequadamente,
+  com o armazenamento dos objetos em memória? (-10 pontos para cada classe
+  faltante, limitados a -30 pontos)
+    Numero de cadastros faltantes: 
+
+- As associações entre classes, incluindo as multiplicidades dessas
+  associações, estão sendo realizadas em memória? (-10 pontos para cada
+  associação errada, limitados a -30 pontos). 
+    Numero de associação não implementadas corretamente: 
+
+- As exceções estão implementadas corretamente? Classes de exceção foram
+  definidas? Objetos de exceção estão sendo lançados e capturados? (-10 pontos
+  por erro inconsistencia identificada, limitados a -30 pontos). 
+    Número de exceções não criadas / lancadas / capturadas:  
+
+TOTAL DE PONTOS OBTIDOS: 100 pontos.
