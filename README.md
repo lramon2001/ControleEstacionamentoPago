@@ -56,9 +56,9 @@
 > **Esse projeto segue o modelo de [releases](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/releases) para versionamento.**
 
 ## Documentation / Documentação
-- This project was documented using the Java documentation API (Javadoc). Click on [This link](https://lramon2001.github.io/docOO/apidocs/) to see the documentation.
+- This project was documented using the Java documentation API (Javadoc). Click on [This link](https://lramon2001.github.io/Documentation/apidocs/) to see the documentation.
 
-> **Este projeto foi documentado utilizando a API de documentação java (Javadoc). Para ver a documentação clique [Neste link](https://lramon2001.github.io/docOO/apidocs/)**
+> **Este projeto foi documentado utilizando a API de documentação java (Javadoc). Para ver a documentação clique [Neste link](https://lramon2001.github.io/Documentation/apidocs/)**
 
 ## License / Licença
 MIT License © [Grupo10](https://github.com/lramon2001/Grupo10-ProjetoO.O-UnB-FGA0158/blob/main/LICENSE)
